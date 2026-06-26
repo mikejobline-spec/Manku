@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Custom styles for overlapping CMYK colors */
+.cmyk-c { @apply border-cyan-500 bg-cyan-400/20 text-cyan-700; }
+.cmyk-m { @apply border-pink-500 bg-pink-400/20 text-pink-700; }
+.cmyk-y { @apply border-yellow-500 bg-yellow-400/20 text-yellow-700; }
+.cmyk-k { @apply border-slate-900 bg-slate-900/20 text-slate-900; }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}

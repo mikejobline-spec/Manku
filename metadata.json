@@ -1,0 +1,6 @@
+{
+  "name": "Offset Printing Press",
+  "description": "Premium commercial offset and high-precision printing showcase featuring advanced machinery, materials catalog, custom project portfolio, and interactive bulk inquiry engine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
