@@ -15,7 +15,7 @@ export default function Portfolio() {
     { label: 'All Projects', val: 'all' },
     { label: 'Bespoke Publishing', val: 'publishing' },
     { label: 'Custom Packaging', val: 'packaging' },
-    { label: 'Promotional & Large', val: 'promotional' }
+    { label: 'Corporate & Institutional', val: 'corporate' }
   ];
 
   return (
@@ -24,14 +24,12 @@ export default function Portfolio() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-mono text-xs text-cyan-600 font-bold uppercase tracking-widest">Tangible Craft</h2>
-          <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4 tracking-tight">
-            Workplace & Portfolio Gallery
-          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4 tracking-tight">
+            Completed Publications & Projects
+          </h2>
           <p className="font-sans text-sm text-slate-600 font-light leading-relaxed">
-            Browse through active press room runs, finished master copies, and our high-calibration color management pre-press environments.
+            Browse through some of our high-quality completed book printings, packaging designs, and corporate products.
           </p>
-          <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full mt-4" />
         </div>
 
         {/* Portfolio Tabs */}
@@ -73,7 +71,11 @@ export default function Portfolio() {
               <div className="p-6 md:col-span-7 flex flex-col justify-between">
                 <div>
                   <span className="text-[10px] font-mono text-cyan-600 font-semibold uppercase tracking-wider block">
-                    {item.category === 'publishing' ? 'Editorial Publishing' : item.category === 'packaging' ? 'Luxury Packaging' : 'Promotional & Branding'}
+                    {item.category === 'publishing' 
+                      ? 'Bespoke Publishing' 
+                      : item.category === 'packaging' 
+                        ? 'Custom Packaging' 
+                        : 'Corporate & Institutional'}
                   </span>
                   <h3 className="font-display text-lg font-bold text-slate-900 mt-1">{item.title}</h3>
                   <p className="font-sans text-xs text-slate-500 mt-2 leading-relaxed font-light">
@@ -113,75 +115,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* WORKPLACE & FACILITY HIGHLIGHT: Bento Section */}
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Facility Image */}
-            <div className="lg:col-span-5 relative h-80 rounded-2xl overflow-hidden shadow-md">
-              <img
-                src="/src/assets/images/prepress_proofing_station_1782462376789.jpg"
-                alt="Color Proofing Calibration Station"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="font-mono text-[9px] text-cyan-400 font-bold uppercase tracking-widest">Calibration Standard</span>
-                <h4 className="text-sm font-sans font-bold mt-0.5">D50 Color Control Station</h4>
-              </div>
-            </div>
 
-            {/* Workplace Content */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-2">
-                <Activity className="w-5 h-5 text-cyan-600 animate-pulse" />
-                <span className="font-mono text-xs text-slate-500 uppercase font-semibold">Active Workplace & Standard</span>
-              </div>
-              
-              <h3 className="font-display text-2xl font-extrabold text-slate-900 leading-tight">
-                Step Inside Our High-Fidelity Color-Calibrated Facility
-              </h3>
-
-              <p className="font-sans text-xs text-slate-600 leading-relaxed font-light">
-                A pristine printed result begins long before plates strike raw paper. Our workspace carries automated workflow standards where every file undergoes preflight checks, ink profiling, and proof verification.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 bg-white border border-slate-200/60 rounded-xl">
-                  <h4 className="text-xs font-sans font-bold text-slate-900 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    Pre-Press Calibration
-                  </h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
-                    Closed-loop digital pre-flighting aligns customer PDF files directly to ICC v4 color output targets, minimizing alignment errors.
-                  </p>
-                </div>
-
-                <div className="p-4 bg-white border border-slate-200/60 rounded-xl">
-                  <h4 className="text-xs font-sans font-bold text-slate-900 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-pink-500" />
-                    Post-Press Bindery
-                  </h4>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
-                    Features automated programmable cutting tables, folder-gluers, saddle stitchers, and flatbed packaging die-cutters.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-4 flex items-center gap-2.5">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1 text-xs font-mono font-bold text-cyan-600 hover:text-cyan-700 hover:underline"
-                >
-                  Schedule a Physical Facility Tour
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
       </div>
     </section>

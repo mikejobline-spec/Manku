@@ -13,9 +13,8 @@ export default function Machinery() {
   const categories: { label: string; val: MachineCategory | 'all' }[] = [
     { label: 'All Equipment', val: 'all' },
     { label: 'Offset Presses', val: 'offset' },
-    { label: 'Digital Presses', val: 'digital' },
-    { label: 'Large-Format Plotters', val: 'large-format' },
-    { label: 'Die-Cutting & Post-Press', val: 'post-press' },
+    { label: 'Post-Press & Binding', val: 'post-press' },
+    { label: 'Pre-Press & Support', val: 'pre-press' },
   ];
 
   return (
@@ -68,7 +67,11 @@ export default function Machinery() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/10 to-transparent" />
                 <span className="absolute top-4 right-4 px-2.5 py-1 bg-slate-900/90 backdrop-blur text-cyan-400 border border-slate-700 font-mono text-[10px] font-semibold uppercase rounded-full">
-                  {machine.category === 'offset' ? 'Sheet-fed Offset' : machine.category}
+                  {machine.category === 'offset' 
+                    ? 'Sheet-fed Offset' 
+                    : machine.category === 'post-press'
+                      ? 'Post-Press / Finishing'
+                      : 'Pre-Press / Support'}
                 </span>
               </div>
 

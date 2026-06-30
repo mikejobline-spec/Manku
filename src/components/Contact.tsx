@@ -118,7 +118,7 @@ export default function Contact() {
             {/* Direct Contact Card */}
             <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
               <h3 className="font-display text-lg font-bold text-white border-b border-slate-850 pb-3">
-                AeroPress Headquarters
+                Mankusa Headquarters
               </h3>
               
               <div className="mt-6 space-y-6">
@@ -131,8 +131,8 @@ export default function Contact() {
                   <div>
                     <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Facility Location</h4>
                     <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
-                      4480 Industrial Press Parkway, Suite 100<br />
-                      Grand Rapids, MI 49503
+                      Around Mekanisa Abo church<br />
+                      Addis Ababa, Ethiopia
                     </p>
                   </div>
                 </div>
@@ -145,8 +145,8 @@ export default function Contact() {
                   <div>
                     <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Press Room Hotline</h4>
                     <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
-                      +1 (616) 555-0190 <span className="text-xs text-slate-500 font-mono">(Direct)</span><br />
-                      +1 (616) 555-0195 <span className="text-xs text-slate-500 font-mono">(Quotes Dept)</span>
+                      +251 11 321 0190 <span className="text-xs text-slate-500 font-mono">(Direct)</span><br />
+                      +251 911 555 195 <span className="text-xs text-slate-500 font-mono">(Quotes Dept)</span>
                     </p>
                   </div>
                 </div>
@@ -159,10 +159,10 @@ export default function Contact() {
                   <div>
                     <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Digital & Telegram Support</h4>
                     <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
-                      <a href="mailto:quotes@aeropressprinting.com" className="hover:text-cyan-400 transition-colors">quotes@aeropressprinting.com</a>
+                      <a href="mailto:quotes@mankusaprinting.com" className="hover:text-cyan-400 transition-colors">quotes@mankusaprinting.com</a>
                     </p>
                     <p className="text-xs text-slate-400 mt-1">
-                      Telegram: <a href="https://t.me/aeropress_offset" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">@aeropress_offset</a>
+                      Telegram: <a href="https://t.me/mankusa_printing" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">@mankusa_printing</a>
                     </p>
                   </div>
                 </div>
@@ -185,17 +185,13 @@ export default function Contact() {
             </div>
 
             {/* PERSISTENT STORAGE PANEL: Client Inquiries History */}
-            <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
-              <h3 className="font-display text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                <History className="w-4 h-4 text-cyan-400" />
-                Your Active Inquiries & Estimates ({inquiries.length})
-              </h3>
+            {inquiries.length > 0 && (
+              <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <h3 className="font-display text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                  <History className="w-4 h-4 text-cyan-400" />
+                  Your Active Inquiries & Estimates ({inquiries.length})
+                </h3>
 
-              {inquiries.length === 0 ? (
-                <div className="py-8 text-center text-xs text-slate-500 font-sans">
-                  No previous inquiries found in this browser session. Submitted quotes will populate here instantly.
-                </div>
-              ) : (
                 <div className="mt-4 space-y-4 max-h-80 overflow-y-auto pr-1">
                   {inquiries.map((inq) => {
                     const material = MATERIALS_DATA.find(m => m.id === inq.materialId);
@@ -249,8 +245,8 @@ export default function Contact() {
                     );
                   })}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
           </div>
 
@@ -324,10 +320,10 @@ export default function Contact() {
               )}
 
               <h3 className="font-display text-xl font-bold text-white">
-                Initiate Custom Spec Inquiry
+                Send an Inquiry
               </h3>
               <p className="font-sans text-xs text-slate-400 mt-1 font-light leading-relaxed">
-                Provide your structural requirements below. This client form activates our custom calculation algorithms for instant blueprint receipt generation.
+                Provide your project specifications below to get a custom estimation from our team.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -471,7 +467,7 @@ export default function Contact() {
                   className="w-full flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-sans text-sm font-semibold rounded-lg shadow-lg hover:shadow-cyan-500/10 transition-all cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  {isSubmitting ? 'Calculating...' : 'Submit Spec & Generate Receipt Estimate'}
+                  {isSubmitting ? 'Calculating...' : 'Submit Spec & Get Estimate'}
                 </button>
 
               </form>

@@ -1,4 +1,4 @@
-export type MachineCategory = 'offset' | 'digital' | 'large-format' | 'post-press';
+export type MachineCategory = 'offset' | 'post-press' | 'pre-press';
 
 export interface MachineryItem {
   id: string;

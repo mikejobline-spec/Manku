@@ -1,15 +1,15 @@
 import React from 'react';
-import { ShieldCheck, Cpu, Flame, ArrowRight, Layers } from 'lucide-react';
+import { ShieldCheck, Cpu, Flame, ArrowRight } from 'lucide-react';
 
 interface HeroProps {
-  onOpenEstimator: () => void;
+  // Props are now empty
 }
 
-export default function Hero({ onOpenEstimator }: HeroProps) {
+export default function Hero({}: HeroProps) {
   const stats = [
-    { label: 'Color Control Precision', val: '99.8%', desc: 'Delta E spectrophotometry' },
-    { label: 'Max Offset Speed', val: '18,000', desc: 'Sheets fed per hour' },
-    { label: 'Archival Lifespan', val: '100+ Yrs', desc: 'Acid-free ink bonding' },
+    { label: 'Established In', val: '2001', desc: 'Book publishing & printing' },
+    { label: 'Qualified Team', val: '50+ Experts', desc: 'Skilled professionals' },
+    { label: 'Continuous Power', val: '130KV Generator', desc: 'Guaranteed prompt delivery' },
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function Hero({ onOpenEstimator }: HeroProps) {
       {/* Background Hero Image with dark overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/offset_press_hero_1782462327653.jpg"
+          src="/images/workshop pic (12).jpg"
           alt="Heavy-Duty Commercial Offset Press Machine in Action"
           className="w-full h-full object-cover opacity-35 scale-105 motion-safe:animate-[pulse_10s_infinite_alternate]"
           referrerPolicy="no-referrer"
@@ -39,18 +39,18 @@ export default function Hero({ onOpenEstimator }: HeroProps) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
-              Next-Gen Sheet-Fed Offset Printing
+              Ethiopia's Premier Book & Offset Press
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Where Precision Meets <br />
               <span className="bg-gradient-to-r from-cyan-400 via-pink-400 to-yellow-300 bg-clip-text text-transparent">
-                High-Volume Mastery
+                High-Volume Book Mastery
               </span>
             </h1>
 
             <p className="font-sans text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Experience the unmatched density, crisp detail, and continuous tone fidelity of state-of-the-art 6-color offset presses. Engineered for enterprise publications, luxury catalogs, and premium custom packaging.
+              Mankusa Printing and Publishing (Print House) is Addis Ababa's leading commercial press with over 50 qualified professionals. Since 2001, we have undertaken all printing-related assignments—including books, catalogs, brochures, folders, packaging boxes, newsletters, envelopes, forms, and calendars—guaranteeing competitive rates and excellent quality.
             </p>
 
             {/* CTA row */}
@@ -62,28 +62,27 @@ export default function Hero({ onOpenEstimator }: HeroProps) {
                 Initiate Project Inquiry
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <button
-                onClick={onOpenEstimator}
+              <a
+                href="#machinery"
                 className="flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white font-sans text-sm font-semibold rounded-lg border border-slate-700 backdrop-blur transition-all w-full sm:w-auto cursor-pointer"
               >
-                <Layers className="w-4 h-4 text-cyan-400" />
-                Interactive Specs Calculator
-              </button>
+                Explore Production Fleet
+              </a>
             </div>
 
             {/* Key credentials bar */}
             <div className="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-center lg:justify-start gap-y-3 gap-x-8 text-xs font-mono text-slate-400">
               <div className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-cyan-400" />
-                FSC® Chain of Custody
+                130KV Generator Backup
               </div>
               <div className="flex items-center gap-1.5">
                 <Cpu className="w-4 h-4 text-pink-400" />
-                Prinect Spectrophotometer inline
+                Prompt Service Delivery
               </div>
               <div className="flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-yellow-400" />
-                H-UV Instant Dry Tech
+                50+ Qualified Employees
               </div>
             </div>
           </div>

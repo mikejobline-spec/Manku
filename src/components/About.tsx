@@ -1,30 +1,30 @@
 import React from 'react';
-import { History, Award, CheckCircle, Leaf, Sparkles, Building2 } from 'lucide-react';
+import { History, Award, CheckCircle, Leaf, Sparkles, Building2, Users, Heart, Target } from 'lucide-react';
 
 export default function About() {
   const values = [
     {
-      icon: Award,
-      title: 'Precision CMYK Fidelity',
-      desc: 'Our Heidelberg spectrophotometers scan color density in real-time, holding Delta-E color variation within an undetectable range of 0.8.'
+      icon: Heart,
+      title: 'Customer Respect & Faith',
+      desc: 'We believe in treating every customer with deep respect, integrating honesty, integrity, and business ethics into all aspects of our functioning.'
     },
     {
-      icon: Leaf,
-      title: 'Eco-Minded Footprint',
-      desc: 'We exclusive utilize soy- and vegetable-based inks, zero-chemical aluminum plates, and carry full FSC® certification across all stocked media.'
+      icon: Target,
+      title: 'Our Ultimate Goal',
+      desc: 'Delighted customers are key to our success, and we strive to achieve this every second. Printing is our passion and we deliver the most effective solutions.'
     },
     {
       icon: Sparkles,
-      title: 'Structural Luxury Finishing',
-      desc: 'We pair high-volume offset with luxury custom finishing, including hot gold foil stamping, blind embossing, and computer-guided structural die-cutting.'
+      title: 'Creative Innovation',
+      desc: 'We provide exceptional services by pursuing business through innovation and creativity that exceed the expectations of our esteemed customers.'
     }
   ];
 
   const milestones = [
-    { year: '1998', title: 'Founding Litho Press', desc: 'Began as a 2-color letterpress boutique in the historic district, serving local publishing houses.' },
-    { year: '2008', title: 'Offset Integration', desc: 'Commissioned our first automated Heidelberg press, scaling volume to million-sheet print runs.' },
-    { year: '2018', title: 'Carbon Neutral Standard', desc: 'Eliminated heavy chemical cleaning agents and transitioned entirely to soy inks and FSC-certified media.' },
-    { year: '2024', title: 'Next-Gen Expansion', desc: 'Integrated inline color measurement spectrophotometers and instant UV-LED curing lines.' }
+    { year: '2001', title: 'Publishing Inception', desc: 'Started our journey by publishing premium books into print media, establishing a high reputation.' },
+    { year: '2010', title: 'Printing Press Expansion', desc: 'Expanded into a full-scale physical printing press journey in Addis Ababa, Addis Ababa City.' },
+    { year: '2018', title: 'Production Upgrade', desc: 'Commissioned heavy-duty Miller and Heidelberg perfecting systems to triple output capacity.' },
+    { year: '2026', title: 'Ethiopia Leader', desc: 'Operating with over 50 highly qualified printing professionals and an uninterrupted 130KV generator setup.' }
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function About() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-mono text-xs text-cyan-600 font-bold uppercase tracking-widest">Our Heritage & Integrity</h2>
           <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-4 tracking-tight">
-            Crafting Tangible Excellence Since 1998
+            Crafting Tangible Excellence Since 2001
           </p>
           <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
         </div>
@@ -46,31 +46,31 @@ export default function About() {
           {/* Text block */}
           <div className="lg:col-span-6 flex flex-col space-y-6">
             <h3 className="font-display text-2xl font-bold text-slate-900 leading-snug">
-              Providing enterprise-level printing with a boutique focus on finish and ink density.
+              Mankusa Printing and Publishing — Addis Ababa\'s Trusted Partner for High Quality Products & Prompt Service.
             </h3>
             
             <p className="font-sans text-slate-600 leading-relaxed font-light">
-              Founded over two decades ago on the principles of mechanical precision and color fidelity, our press house has grown from a local boutique workshop to a full-scale industrial printing press provider. We specialized in high-speed, sheet-fed <strong>offset printing services</strong>.
+              Mankusa Printing and Publishing started its journey in <strong>2001</strong> by publishing books into print media. Over the years, we expanded into a physical high-capacity printing press in <strong>2010</strong>, creating a full-fledged pre-press, offset printing, and finishing workspace in Addis Ababa, Ethiopia.
             </p>
             
             <p className="font-sans text-slate-600 leading-relaxed font-light">
-              Unlike digital-only outfits, offset offers continuous ink density and seamless smooth solids that do not crack at folds or rub away under humidity. Our equipment portfolio allows us to service orders of any scale, from 500 bespoke presentation binders to 500,000 corporate catalogs, delivered on time, with perfect registration.
+              We undertake all printing-related assignments with an unwavering customer commitment: working with you every step of the way to exceed expectations, utilizing friendly, skilled professionals. We guarantee highly competitive rates along with excellent & quality products across everything from books to commercial packaging.
             </p>
 
             {/* Quick figures */}
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
               <div className="flex items-start gap-3">
-                <Building2 className="w-5 h-5 text-cyan-500 mt-1 flex-shrink-0" />
+                <Users className="w-5 h-5 text-cyan-500 mt-1 flex-shrink-0" />
                 <div>
-                  <div className="text-lg font-bold text-slate-900">12,500 sq ft</div>
-                  <div className="text-xs text-slate-500 font-mono uppercase">Facility Area</div>
+                  <div className="text-lg font-bold text-slate-900">50+ Qualified</div>
+                  <div className="text-xs text-slate-500 font-mono uppercase">Full-Time Staff</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-pink-500 mt-1 flex-shrink-0" />
                 <div>
-                  <div className="text-lg font-bold text-slate-900">30 Million+</div>
-                  <div className="text-xs text-slate-500 font-mono uppercase">Impressions Printed</div>
+                  <div className="text-lg font-bold text-slate-900">Ethiopia Core</div>
+                  <div className="text-xs text-slate-500 font-mono uppercase">Addis Ababa City</div>
                 </div>
               </div>
             </div>
