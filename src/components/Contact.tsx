@@ -189,12 +189,11 @@ export default function Contact() {
               <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
                 <h3 className="font-display text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
                   <History className="w-4 h-4 text-cyan-400" />
-                  Your Active Inquiries & Estimates ({inquiries.length})
+                  Your Active Inquiries ({inquiries.length})
                 </h3>
 
                 <div className="mt-4 space-y-4 max-h-80 overflow-y-auto pr-1">
                   {inquiries.map((inq) => {
-                    const material = MATERIALS_DATA.find(m => m.id === inq.materialId);
                     return (
                       <div
                         key={inq.id}
@@ -204,39 +203,35 @@ export default function Contact() {
                           <div>
                             <span className="text-[9px] font-mono text-slate-500">{inq.createdAt}</span>
                             <h4 className="text-xs font-bold text-white mt-0.5">
-                              {inq.quantity.toLocaleString()} × {material?.name || 'Custom Material'}
+                              Inquiry by {inq.clientName}
                             </h4>
-                            <span className="text-[10px] font-mono text-slate-400 block mt-0.5">{inq.size}</span>
+                            {inq.companyName && (
+                              <span className="text-[10px] font-mono text-slate-400 block mt-0.5">{inq.companyName}</span>
+                            )}
                           </div>
                           
                           {/* Delete */}
                           <button
                             onClick={() => handleDeleteInquiry(inq.id)}
                             className="p-1 text-slate-600 hover:text-rose-400 transition-colors"
-                            title="Remove quote history"
+                            title="Remove inquiry"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
 
-                        {/* Calculations summary row */}
+                        {/* Status row */}
                         <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between">
                           <div>
-                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none">Estimate Range</span>
-                            <span className="text-sm font-mono font-bold text-emerald-400">
-                              ${inq.estimatedCost.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
-                            </span>
-                          </div>
-                          <div>
-                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none text-right">Fulfillment</span>
-                            <span className="text-[11px] font-sans font-medium text-slate-300">
-                              {inq.estimatedDays} business days
-                            </span>
-                          </div>
-                          <div>
-                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none text-right">Status</span>
+                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none">Status</span>
                             <span className="inline-block px-1.5 py-0.5 bg-cyan-950/40 text-cyan-400 border border-cyan-800/60 font-mono text-[8px] font-bold uppercase rounded mt-0.5">
                               {inq.status}
+                            </span>
+                          </div>
+                          <div>
+                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none text-right">Contact</span>
+                            <span className="text-[11px] font-sans font-medium text-slate-300">
+                              {inq.phone}
                             </span>
                           </div>
                         </div>
@@ -261,52 +256,19 @@ export default function Contact() {
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   
-                  <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Inquiry Successfully Queued</span>
-                  <h3 className="font-display text-2xl font-bold text-white mt-1">Instant Offset Estimate Issued</h3>
+                  <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Inquiry Successfully Sent</span>
+                  <h3 className="font-display text-2xl font-bold text-white mt-1">Inquiry Submitted</h3>
                   
                   <p className="font-sans text-xs text-slate-400 mt-2 max-w-md leading-relaxed">
-                    Thank you, <strong className="text-white">{successInquiry.clientName}</strong>! Your inquiry for <strong className="text-white">{successInquiry.quantity.toLocaleString()} sheets</strong> has been filed under ID <code className="text-cyan-300 font-mono bg-slate-950 px-1 py-0.5 rounded text-[10px]">{successInquiry.id}</code>.
+                    Thank you, <strong className="text-white">{successInquiry.clientName}</strong>! Your inquiry has been successfully sent to our estimation team under ID <code className="text-cyan-300 font-mono bg-slate-950 px-1 py-0.5 rounded text-[10px]">{successInquiry.id}</code>. We will get in touch with you shortly.
                   </p>
 
-                  {/* Calculations receipts panel */}
-                  <div className="bg-slate-950 border border-slate-800 p-5 rounded-xl w-full max-w-md my-6 text-left space-y-3">
-                    <div className="text-xs text-slate-400 font-mono uppercase tracking-wide border-b border-slate-800 pb-2">
-                      Dynamic Estimator Output
-                    </div>
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-slate-400">Total Print Setup & Plate Cost:</span>
-                      <span className="font-mono text-slate-200">$250.00</span>
-                    </div>
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-slate-400">Substrate Stock Cost:</span>
-                      <span className="font-mono text-slate-200">
-                        ${((successInquiry.estimatedCost - 250 - (successInquiry.quantity / 5000) * 80)).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center text-xs">
-                      <span className="text-slate-400">Press Labor & Drying:</span>
-                      <span className="font-mono text-slate-200">
-                        ${((successInquiry.quantity / 5000) * 80).toFixed(2)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm font-bold border-t border-slate-800 pt-2.5">
-                      <span className="text-white">Estimated Quote Sum:</span>
-                      <span className="font-mono text-emerald-400">
-                        ${successInquiry.estimatedCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center text-[10px] text-slate-500 pt-1">
-                      <span>Expected Press Delivery:</span>
-                      <span className="font-sans text-slate-400">{successInquiry.estimatedDays} business days</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-3 mt-6">
                     <button
                       onClick={() => setSuccessInquiry(null)}
                       className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-sans text-xs font-semibold rounded-lg border border-slate-700 cursor-pointer"
                     >
-                      File Another Quote
+                      Send Another Inquiry
                     </button>
                     <a
                       href="#site-header"
@@ -389,77 +351,6 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Substrate & Quantity */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
-                      Target Substrate Media
-                    </label>
-                    <select
-                      value={materialId}
-                      onChange={(e) => setMaterialId(e.target.value)}
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                    >
-                      {MATERIALS_DATA.map((mat) => (
-                        <option key={mat.id} value={mat.id}>
-                          {mat.name} ({mat.weight})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
-                      Fulfillment Format Size
-                    </label>
-                    <select
-                      value={size}
-                      onChange={(e) => setSize(e.target.value)}
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
-                    >
-                      <option value="B2 Format (500 x 707 mm)">B2 Format (500 x 707 mm)</option>
-                      <option value="Full Offset Sheet (700 x 1000 mm)">Full Offset Sheet (700 x 1000 mm)</option>
-                      <option value="A3 Booklet Spread (297 x 420 mm)">A3 Booklet Spread (297 x 420 mm)</option>
-                      <option value="A4 Corporate Letter (210 x 297 mm)">A4 Corporate Letter (210 x 297 mm)</option>
-                      <option value="Custom Packaging Box Die-cut">Custom Packaging Box Die-cut</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Run Quantity Slider / Input */}
-                <div className="flex flex-col bg-slate-900/40 p-4 rounded-xl border border-slate-800">
-                  <div className="flex justify-between items-center text-xs font-mono text-slate-400 mb-2">
-                    <span>Desired Print Run Volume:</span>
-                    <span className="text-cyan-400 font-bold">{quantity.toLocaleString()} sheets</span>
-                  </div>
-                  <input
-                    type="range"
-                    min="500"
-                    max="50000"
-                    step="500"
-                    value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value))}
-                    className="w-full accent-cyan-400 cursor-pointer mb-2"
-                  />
-                  <span className="text-[10px] font-sans text-slate-500 leading-normal">
-                    *Offset setups are most cost-efficient at 1,000+ sheets. Per-unit cost drops up to 80% on volumes greater than 10,000 prints due to setup amortizations.
-                  </span>
-                </div>
-
-                {/* Custom Message */}
-                <div className="flex flex-col">
-                  <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
-                    Structural Requirements & Layout Notes
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={customMessage}
-                    onChange={(e) => setCustomMessage(e.target.value)}
-                    placeholder="Specify bleed bounds, spot color codes, gold foil areas, structural packaging folds, and binding requirements..."
-                    className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
-                  />
-                </div>
-
                 {/* Submit */}
                 <button
                   type="submit"
@@ -467,7 +358,7 @@ export default function Contact() {
                   className="w-full flex items-center justify-center gap-2 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-sans text-sm font-semibold rounded-lg shadow-lg hover:shadow-cyan-500/10 transition-all cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  {isSubmitting ? 'Calculating...' : 'Submit Spec & Get Estimate'}
+                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
                 </button>
 
               </form>

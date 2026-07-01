@@ -14,92 +14,14 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
   // - Magenta: #ec008c
   // - Yellow: #fff200
 
-  // The custom responsive SVG Icon for the book
+  // The custom responsive SVG Icon for the book replaced by decoded PNG image
   const renderIcon = (customClass = "h-full w-auto") => (
-    <svg
-      viewBox="0 0 320 200"
-      className={customClass}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* 5 Orange Fanned Pages (Left side of the book) */}
-      <g id="orange-fan">
-        {/* Outermost left page */}
-        <path
-          d="M 138,160 C 122,128 90,105 74,107 L 64,110 C 76,120 100,148 132,160 Z"
-          fill="#f26522"
-        />
-        {/* Page 4 */}
-        <path
-          d="M 144,160 C 130,125 100,98 87,99 L 77,102 C 87,112 110,143 138,160 Z"
-          fill="#f26522"
-        />
-        {/* Page 3 */}
-        <path
-          d="M 150,160 C 138,122 110,92 100,91 L 90,94 C 98,104 122,138 144,160 Z"
-          fill="#f26522"
-        />
-        {/* Page 2 */}
-        <path
-          d="M 155,160 C 145,120 120,85 112,83 L 102,86 C 110,96 132,132 150,160 Z"
-          fill="#f26522"
-        />
-        {/* Innermost left page */}
-        <path
-          d="M 160,160 C 150,115 130,80 125,75 L 115,78 C 120,88 140,125 155,160 Z"
-          fill="#f26522"
-        />
-      </g>
-
-      {/* CMYK Fanned Pages (Right side of the book) */}
-      <g id="cmyk-fan">
-        {/* Yellow Page (Y) */}
-        <path
-          d="M 160,160 L 198,55 L 222,72 L 160,160"
-          stroke="#fff200"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Magenta Page (M) */}
-        <path
-          d="M 160,160 L 168,62 L 195,74 L 160,160"
-          stroke="#ec008c"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Cyan Page (C) - Innermost right page overlapping crease */}
-        <path
-          d="M 160,160 L 140,75 L 165,85 L 160,160"
-          stroke="#00aeef"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-          fill="none"
-        />
-      </g>
-
-      {/* Black/Navy Cover & Spine (K) - Using currentColor to adapt to parent light/dark context */}
-      <g id="black-cover" className="text-slate-900 dark:text-white">
-        {/* Right Cover Boundary */}
-        <path
-          d="M 225,50 L 225,160 C 200,165 180,165 160,160"
-          stroke="currentColor"
-          strokeWidth="4.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        {/* Top Cover Hook */}
-        <path
-          d="M 225,50 L 200,58"
-          stroke="currentColor"
-          strokeWidth="4.5"
-          strokeLinecap="round"
-          fill="none"
-        />
-      </g>
-    </svg>
+    <img
+      src="/images/Mankusa Logo.png"
+      alt="Mankusa Logo"
+      className={`${customClass} object-contain`}
+      referrerPolicy="no-referrer"
+    />
   );
 
   if (variant === 'iconOnly') {
@@ -159,8 +81,6 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
           <span className="text-[10px] font-sans font-extrabold tracking-[0.06em] text-[#f26522] uppercase leading-none whitespace-nowrap">
             Printing and Publishing
           </span>
-          {/* Custom adaptive navy/white line matching the logo design lockup */}
-          <div className="h-[2.5px] bg-slate-900 dark:bg-white group-hover:bg-cyan-400 flex-grow rounded-sm min-w-[32px] transition-colors"></div>
         </div>
       </div>
     </div>
