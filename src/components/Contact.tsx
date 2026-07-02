@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { MATERIALS_DATA } from '../data';
 import { ClientInquiry } from '../types';
 import { Phone, Mail, Send, MapPin, Clock, History, FileText, CheckCircle2, Trash2, Globe } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Contact() {
+  const { isDarkMode } = useTheme();
   const [clientName, setClientName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
@@ -95,19 +97,21 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900 text-white scroll-mt-10">
+    <section id="contact" className={`py-20 transition-colors duration-300 scroll-mt-10 border-t ${
+      isDarkMode ? 'bg-slate-900 text-white border-slate-800' : 'bg-white text-slate-800 border-slate-100'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-mono text-xs text-cyan-400 font-bold uppercase tracking-widest">Connect & Request</h2>
-          <p className="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-4 tracking-tight">
+          <h2 className={`font-mono text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${isDarkMode ? 'text-cyan-400' : 'text-cyan-600'}`}>Connect & Request</h2>
+          <p className={`font-display text-3xl sm:text-4xl font-extrabold mt-2 mb-4 tracking-tight transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
             Contact & Custom Inquiries
           </p>
-          <p className="font-sans text-sm text-slate-400 font-light leading-relaxed">
+          <p className={`font-sans text-sm mt-3 leading-relaxed font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             Our estimation team delivers precise, custom quotes within 4 business hours. Submit your design specs or get in touch.
           </p>
-          <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 via-pink-400 to-yellow-300 mx-auto rounded-full mt-4" />
+          <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full mt-4" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -116,8 +120,12 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-8">
             
             {/* Direct Contact Card */}
-            <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
-              <h3 className="font-display text-lg font-bold text-white border-b border-slate-850 pb-3">
+            <div className={`transition-colors duration-300 border rounded-2xl p-6 sm:p-8 ${
+              isDarkMode ? 'bg-slate-900 border-slate-800 shadow-none' : 'bg-slate-50 border-slate-200 shadow-sm'
+            }`}>
+              <h3 className={`font-display text-lg font-bold border-b pb-3 transition-colors duration-300 ${
+                isDarkMode ? 'text-white border-slate-800' : 'text-slate-900 border-slate-200'
+              }`}>
                 Mankusa Headquarters
               </h3>
               
@@ -125,12 +133,14 @@ export default function Contact() {
                 
                 {/* Physical Location */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 flex-shrink-0 border border-cyan-500/10">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border transition-colors duration-300 ${
+                    isDarkMode ? 'bg-slate-900 text-cyan-400 border-slate-800' : 'bg-cyan-50 text-cyan-600 border-cyan-100'
+                  }`}>
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Facility Location</h4>
-                    <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
+                    <h4 className={`text-xs font-mono uppercase font-bold tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>Facility Location</h4>
+                    <p className={`text-sm mt-1 leading-normal font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                       Around Mekanisa Abo church<br />
                       Addis Ababa, Ethiopia
                     </p>
@@ -139,44 +149,50 @@ export default function Contact() {
 
                 {/* Telephone */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-9 h-9 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400 flex-shrink-0 border border-pink-500/10">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border transition-colors duration-300 ${
+                    isDarkMode ? 'bg-slate-900 text-pink-400 border-slate-800' : 'bg-pink-50 text-pink-600 border-pink-100'
+                  }`}>
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Press Room Hotline</h4>
-                    <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
-                      +251 11 321 0190 <span className="text-xs text-slate-500 font-mono">(Direct)</span><br />
-                      +251 911 555 195 <span className="text-xs text-slate-500 font-mono">(Quotes Dept)</span>
+                    <h4 className={`text-xs font-mono uppercase font-bold tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>Press Room Hotline</h4>
+                    <p className={`text-sm mt-1 leading-normal font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                      +251 11 321 0190 <span className="text-xs text-slate-400 font-mono">(Direct)</span><br />
+                      +251 911 555 195 <span className="text-xs text-slate-400 font-mono">(Quotes Dept)</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Digital / Telegram */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-9 h-9 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500 flex-shrink-0 border border-yellow-500/10">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border transition-colors duration-300 ${
+                    isDarkMode ? 'bg-slate-900 text-yellow-400 border-slate-800' : 'bg-yellow-50 text-amber-500 border-yellow-100'
+                  }`}>
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Digital & Telegram Support</h4>
-                    <p className="text-sm text-slate-200 mt-1 leading-normal font-light">
-                      <a href="mailto:quotes@mankusaprinting.com" className="hover:text-cyan-400 transition-colors">quotes@mankusaprinting.com</a>
+                    <h4 className={`text-xs font-mono uppercase font-bold tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>Digital & Telegram Support</h4>
+                    <p className={`text-sm mt-1 leading-normal font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+                      <a href="mailto:quotes@mankusaprinting.com" className={`transition-colors ${isDarkMode ? 'hover:text-cyan-400 text-slate-300' : 'hover:text-cyan-600 text-slate-750'}`}>quotes@mankusaprinting.com</a>
                     </p>
-                    <p className="text-xs text-slate-400 mt-1">
-                      Telegram: <a href="https://t.me/mankusa_printing" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">@mankusa_printing</a>
+                    <p className={`text-xs mt-1 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                      Telegram: <a href="https://t.me/mankusa_printing" target="_blank" rel="noopener noreferrer" className={`font-semibold transition-colors ${isDarkMode ? 'text-cyan-400 hover:underline' : 'text-cyan-600 hover:underline'}`}>@mankusa_printing</a>
                     </p>
                   </div>
                 </div>
 
                 {/* Opening Hours */}
-                <div className="flex gap-4 items-start border-t border-slate-800 pt-4">
-                  <div className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 flex-shrink-0 border border-slate-700/60">
+                <div className={`flex gap-4 items-start border-t pt-4 transition-colors duration-300 ${isDarkMode ? 'border-slate-800' : 'border-slate-100'}`}>
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border transition-colors duration-300 ${
+                    isDarkMode ? 'bg-slate-900 text-slate-400 border-slate-800' : 'bg-slate-100 text-slate-500 border-slate-200'
+                  }`}>
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wide">Press Operations Hours</h4>
-                    <p className="text-xs text-slate-300 mt-0.5 font-light leading-relaxed">
-                      Mon – Fri: 24 Hours <span className="text-slate-500 font-mono">(Continuous run)</span><br />
-                      Sat: 8:00 AM – 4:00 PM <span className="text-slate-500 font-mono">(Maintenance)</span>
+                    <h4 className={`text-xs font-mono uppercase font-bold tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>Press Operations Hours</h4>
+                    <p className={`text-xs mt-0.5 font-light leading-relaxed transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                      Mon – Fri: 24 Hours <span className="text-slate-400 font-mono">(Continuous run)</span><br />
+                      Sat: 8:00 AM – 4:00 PM <span className="text-slate-400 font-mono">(Maintenance)</span>
                     </p>
                   </div>
                 </div>
@@ -186,9 +202,13 @@ export default function Contact() {
 
             {/* PERSISTENT STORAGE PANEL: Client Inquiries History */}
             {inquiries.length > 0 && (
-              <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
-                <h3 className="font-display text-sm font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                  <History className="w-4 h-4 text-cyan-400" />
+              <div className={`border rounded-2xl p-6 sm:p-8 transition-colors duration-300 ${
+                isDarkMode ? 'bg-slate-900 border-slate-800 shadow-none' : 'bg-slate-50 border-slate-200 shadow-sm'
+              }`}>
+                <h3 className={`font-display text-sm font-bold flex items-center gap-2 border-b pb-3 transition-colors duration-300 ${
+                  isDarkMode ? 'text-white border-slate-800' : 'text-slate-950 border-slate-200'
+                }`}>
+                  <History className={`w-4 h-4 ${isDarkMode ? 'text-cyan-400' : 'text-cyan-600'}`} />
                   Your Active Inquiries ({inquiries.length})
                 </h3>
 
@@ -197,12 +217,14 @@ export default function Contact() {
                     return (
                       <div
                         key={inq.id}
-                        className="p-4 bg-slate-900 border border-slate-800 rounded-xl hover:border-slate-700 transition-all flex flex-col justify-between"
+                        className={`p-4 border rounded-xl transition-all flex flex-col justify-between duration-300 ${
+                          isDarkMode ? 'bg-slate-900 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 hover:border-slate-300'
+                        }`}
                       >
                         <div className="flex justify-between items-start gap-4">
                           <div>
-                            <span className="text-[9px] font-mono text-slate-500">{inq.createdAt}</span>
-                            <h4 className="text-xs font-bold text-white mt-0.5">
+                            <span className="text-[9px] font-mono text-slate-400">{inq.createdAt}</span>
+                            <h4 className={`text-xs font-bold mt-0.5 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
                               Inquiry by {inq.clientName}
                             </h4>
                             {inq.companyName && (
@@ -213,7 +235,7 @@ export default function Contact() {
                           {/* Delete */}
                           <button
                             onClick={() => handleDeleteInquiry(inq.id)}
-                            className="p-1 text-slate-600 hover:text-rose-400 transition-colors"
+                            className="p-1 text-slate-400 hover:text-rose-500 transition-colors cursor-pointer"
                             title="Remove inquiry"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -221,16 +243,20 @@ export default function Contact() {
                         </div>
 
                         {/* Status row */}
-                        <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                        <div className={`mt-3 pt-3 border-t flex items-center justify-between transition-colors duration-300 ${isDarkMode ? 'border-slate-800/80' : 'border-slate-100'}`}>
                           <div>
-                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none">Status</span>
-                            <span className="inline-block px-1.5 py-0.5 bg-cyan-950/40 text-cyan-400 border border-cyan-800/60 font-mono text-[8px] font-bold uppercase rounded mt-0.5">
+                            <span className="text-[9px] font-mono text-slate-400 uppercase block leading-none">Status</span>
+                            <span className={`inline-block px-1.5 py-0.5 border font-mono text-[8px] font-bold uppercase rounded mt-0.5 transition-colors duration-300 ${
+                              isDarkMode
+                                ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900'
+                                : 'bg-cyan-50 text-cyan-700 border-cyan-100'
+                            }`}>
                               {inq.status}
                             </span>
                           </div>
                           <div>
-                            <span className="text-[9px] font-mono text-slate-500 uppercase block leading-none text-right">Contact</span>
-                            <span className="text-[11px] font-sans font-medium text-slate-300">
+                            <span className="text-[9px] font-mono text-slate-400 uppercase block leading-none text-right">Contact</span>
+                            <span className={`text-[11px] font-sans font-medium transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-750'}`}>
                               {inq.phone}
                             </span>
                           </div>
@@ -247,26 +273,34 @@ export default function Contact() {
 
           {/* Inquiry Submission Form Area */}
           <div className="lg:col-span-7">
-            <div className="bg-slate-850 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl relative">
+            <div className={`border rounded-2xl p-6 sm:p-10 transition-colors duration-300 relative ${
+              isDarkMode ? 'bg-slate-900 border-slate-800 shadow-none' : 'bg-slate-50 border-slate-200 shadow-sm'
+            }`}>
               
               {/* Overlay success dialog if submitted */}
               {successInquiry && (
-                <div className="absolute inset-0 bg-slate-900/95 backdrop-blur rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center z-30 transition-all">
-                  <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 mb-4 animate-[bounce_1.5s_infinite]">
+                <div className={`absolute inset-0 backdrop-blur rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center z-30 transition-all duration-300 ${
+                  isDarkMode ? 'bg-slate-900/95' : 'bg-white/95'
+                }`}>
+                  <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-600 mb-4 animate-[bounce_1.5s_infinite]">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   
-                  <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Inquiry Successfully Sent</span>
-                  <h3 className="font-display text-2xl font-bold text-white mt-1">Inquiry Submitted</h3>
+                  <span className="font-mono text-[10px] text-cyan-600 font-bold uppercase tracking-widest">Inquiry Successfully Sent</span>
+                  <h3 className={`font-display text-2xl font-bold mt-1 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Inquiry Submitted</h3>
                   
-                  <p className="font-sans text-xs text-slate-400 mt-2 max-w-md leading-relaxed">
-                    Thank you, <strong className="text-white">{successInquiry.clientName}</strong>! Your inquiry has been successfully sent to our estimation team under ID <code className="text-cyan-300 font-mono bg-slate-950 px-1 py-0.5 rounded text-[10px]">{successInquiry.id}</code>. We will get in touch with you shortly.
+                  <p className="font-sans text-xs text-slate-500 mt-2 max-w-md leading-relaxed">
+                    Thank you, <strong className={isDarkMode ? 'text-slate-200' : 'text-slate-850'}>{successInquiry.clientName}</strong>! Your inquiry has been successfully sent to our estimation team under ID <code className={`font-mono px-1.5 py-0.5 rounded text-[10px] ${isDarkMode ? 'bg-slate-950 text-cyan-400' : 'bg-slate-100 text-cyan-700'}`}>{successInquiry.id}</code>. We will get in touch with you shortly.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mt-6">
                     <button
                       onClick={() => setSuccessInquiry(null)}
-                      className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-sans text-xs font-semibold rounded-lg border border-slate-700 cursor-pointer"
+                      className={`px-5 py-2.5 font-sans text-xs font-semibold rounded-lg border cursor-pointer transition-colors duration-300 ${
+                        isDarkMode
+                          ? 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-700'
+                          : 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200'
+                      }`}
                     >
                       Send Another Inquiry
                     </button>
@@ -281,10 +315,10 @@ export default function Contact() {
                 </div>
               )}
 
-              <h3 className="font-display text-xl font-bold text-white">
+              <h3 className={`font-display text-xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
                 Send an Inquiry
               </h3>
-              <p className="font-sans text-xs text-slate-400 mt-1 font-light leading-relaxed">
+              <p className="font-sans text-xs text-slate-500 mt-1 font-light leading-relaxed">
                 Provide your project specifications below to get a custom estimation from our team.
               </p>
 
@@ -293,7 +327,7 @@ export default function Contact() {
                 {/* Client Name & Company Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5 flex items-center gap-1">
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 flex items-center gap-1 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                       Your Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -302,20 +336,28 @@ export default function Contact() {
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
                       placeholder="e.g. Mike Jobline"
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                      }`}
                     />
                   </div>
 
                   <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
-                      Company Name <span className="text-slate-500 font-light">(Optional)</span>
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                      Company Name <span className="text-slate-400 font-light">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={companyName}
                       onChange={(e) => setCompanyName(e.target.value)}
                       placeholder="e.g. Enterprise Pubs"
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                      }`}
                     />
                   </div>
                 </div>
@@ -323,7 +365,7 @@ export default function Contact() {
                 {/* Email & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -332,12 +374,16 @@ export default function Contact() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="mikejobline@gmail.com"
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                      }`}
                     />
                   </div>
 
                   <div className="flex flex-col">
-                    <label className="font-mono text-[10px] text-slate-400 uppercase font-bold mb-1.5">
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                       Phone Number <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -346,7 +392,11 @@ export default function Contact() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+1 (555) 019-2834"
-                      className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                      }`}
                     />
                   </div>
                 </div>

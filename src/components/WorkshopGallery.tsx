@@ -17,6 +17,7 @@ import {
   Eye,
   Activity
 } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 interface WorkshopPhoto {
   id: string;
@@ -32,6 +33,7 @@ interface WorkshopPhoto {
 }
 
 export default function WorkshopGallery() {
+  const { isDarkMode } = useTheme();
   const [activeTab, setActiveTab] = useState<string>('all');
   const [selectedPhoto, setSelectedPhoto] = useState<WorkshopPhoto | null>(null);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
@@ -53,7 +55,7 @@ export default function WorkshopGallery() {
     {
       id: 'pic-2',
       src: '/images/workshop pic (2).jpg',
-      fallbackUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200',
+      fallbackUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
       title: 'Central Production Floor & Signatures Staging',
       category: 'pressroom',
       categoryLabel: 'Offset Pressroom',
@@ -248,26 +250,26 @@ export default function WorkshopGallery() {
   }, [selectedPhoto, activeTab]);
 
   return (
-    <section id="workshop" className="py-24 bg-slate-900 text-slate-100 border-t border-slate-950 relative overflow-hidden">
+    <section id="workshop" className={`py-24 border-t relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
       
       {/* Background radial overlays */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none transition-colors duration-300 ${isDarkMode ? 'bg-cyan-500/10' : 'bg-cyan-500/5'}`} />
+      <div className={`absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none transition-colors duration-300 ${isDarkMode ? 'bg-indigo-500/10' : 'bg-indigo-500/5'}`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Title Header */}
         <div className="max-w-3xl mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className={`font-display text-3xl sm:text-4xl font-extrabold tracking-tight transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
             Production Facility Gallery
           </h2>
-          <p className="font-sans text-sm text-slate-400 mt-3 leading-relaxed font-light">
+          <p className={`font-sans text-sm mt-3 leading-relaxed font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             Step through our active print floor areas in Addis Ababa, Ethiopia, covering prepress, sheet-fed offset printing, and post-press finishing.
           </p>
         </div>
 
         {/* Category Navigation Tabs */}
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 border-b border-slate-800 pb-6 mb-10">
+        <div className={`flex flex-wrap items-center justify-center sm:justify-start gap-2 border-b pb-6 mb-10 transition-colors duration-300 ${isDarkMode ? 'border-slate-800' : 'border-slate-200'}`}>
           {[
             { id: 'all', label: 'All Operations', count: 13 },
             { id: 'pressroom', label: 'Offset Pressroom', count: 5 },
@@ -280,13 +282,19 @@ export default function WorkshopGallery() {
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 py-2 font-sans text-xs font-medium rounded-xl border transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === tab.id
-                  ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30 font-semibold shadow-md shadow-cyan-950/25'
-                  : 'bg-slate-800/40 hover:bg-slate-800 text-slate-400 border-slate-800 hover:text-slate-200'
+                  ? isDarkMode
+                    ? 'bg-cyan-950/80 text-cyan-400 border-cyan-500/50 font-semibold shadow-sm'
+                    : 'bg-cyan-50 text-cyan-600 border-cyan-300 font-semibold shadow-sm'
+                  : isDarkMode
+                    ? 'bg-slate-900 hover:bg-slate-800 text-slate-400 border-slate-800 hover:text-white'
+                    : 'bg-white hover:bg-slate-100 text-slate-500 border-slate-200 hover:text-slate-700'
               }`}
             >
               {tab.label}
-              <span className={`px-1.5 py-0.5 text-[9px] font-mono rounded-md ${
-                activeTab === tab.id ? 'bg-cyan-500/20 text-cyan-300' : 'bg-slate-900 text-slate-500'
+              <span className={`px-1.5 py-0.5 text-[9px] font-mono rounded-md transition-colors duration-300 ${
+                activeTab === tab.id
+                  ? isDarkMode ? 'bg-cyan-900 text-cyan-300' : 'bg-cyan-100 text-cyan-700'
+                  : isDarkMode ? 'bg-slate-800 text-slate-500' : 'bg-slate-100 text-slate-400'
               }`}>
                 {tab.count}
               </span>
@@ -313,16 +321,24 @@ export default function WorkshopGallery() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3, delay: index * 0.04 }}
                   onClick={() => setSelectedPhoto(photo)}
-                  className="group bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between shadow-xl hover:shadow-cyan-950/20 hover:border-slate-700 transition-all cursor-pointer relative"
+                  className={`group overflow-hidden flex flex-col justify-between transition-all cursor-pointer relative rounded-2xl border duration-300 ${
+                    isDarkMode
+                      ? 'bg-slate-900 border-slate-800 hover:border-slate-750 hover:shadow-lg'
+                      : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-md'
+                  }`}
                 >
                   
                   {/* Category Label Overlay */}
-                  <span className="absolute top-3 left-3 z-10 bg-slate-950/90 backdrop-blur-md px-2.5 py-1 text-[9px] font-mono text-cyan-400 uppercase tracking-wider rounded-lg border border-slate-800/80">
+                  <span className={`absolute top-3 left-3 z-10 px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-lg border transition-all duration-300 ${
+                    isDarkMode
+                      ? 'bg-slate-950/95 text-cyan-400 border-slate-800'
+                      : 'bg-white/90 backdrop-blur-md text-cyan-600 border-slate-200/80'
+                  }`}>
                     {photo.categoryLabel}
                   </span>
 
                   {/* Image Frame */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
                     <img
                       src={displaySrc}
                       alt={photo.title}
@@ -332,10 +348,12 @@ export default function WorkshopGallery() {
                     />
                     
                     {/* Visual dark gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
                     {/* Quick Expand Button overlay */}
-                    <div className="absolute bottom-3 right-3 p-2 rounded-lg bg-slate-900/90 text-slate-300 border border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity shadow">
+                    <div className={`absolute bottom-3 right-3 p-2 rounded-lg border opacity-0 group-hover:opacity-100 transition-opacity shadow animate-fade-in ${
+                      isDarkMode ? 'bg-slate-900 text-slate-300 border-slate-700 hover:text-white' : 'bg-white/95 text-slate-600 border-slate-200'
+                    }`}>
                       <Maximize2 className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -343,16 +361,24 @@ export default function WorkshopGallery() {
                   {/* Text Description Block */}
                   <div className="p-5 flex-grow flex flex-col justify-between">
                     <div>
-                      <h4 className="font-display text-sm font-semibold text-white tracking-tight group-hover:text-cyan-300 transition-colors line-clamp-1">
+                      <h4 className={`font-display text-sm font-semibold tracking-tight transition-colors line-clamp-1 ${
+                        isDarkMode ? 'text-white group-hover:text-cyan-400' : 'text-slate-900 group-hover:text-cyan-600'
+                      }`}>
                         {photo.title}
                       </h4>
-                      <p className="font-sans text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed font-light">
+                      <p className={`font-sans text-xs mt-2 line-clamp-2 leading-relaxed font-light transition-colors duration-300 ${
+                        isDarkMode ? 'text-slate-400' : 'text-slate-500'
+                      }`}>
                         {photo.description}
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-slate-900 flex items-center justify-end">
-                      <span className="font-mono text-[9px] text-cyan-500 font-semibold uppercase tracking-wider bg-cyan-950/30 px-2 py-0.5 rounded border border-cyan-950">
+                    <div className={`mt-4 pt-3 border-t flex items-center justify-end transition-colors duration-300 ${isDarkMode ? 'border-slate-800' : 'border-slate-100'}`}>
+                      <span className={`font-mono text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded border transition-colors duration-300 ${
+                        isDarkMode
+                          ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/60'
+                          : 'bg-cyan-50 text-cyan-700 border-cyan-100'
+                      }`}>
                         {photo.categoryLabel}
                       </span>
                     </div>
@@ -377,13 +403,17 @@ export default function WorkshopGallery() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-slate-950/95 flex items-center justify-center p-4 md:p-8 backdrop-blur-md"
+              className="fixed inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-4 md:p-8 backdrop-blur-md"
               onClick={() => setSelectedPhoto(null)}
             >
               {/* Close Button top-right */}
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute top-5 right-5 z-20 p-2 rounded-full bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:scale-105 transition-all cursor-pointer"
+                className={`absolute top-5 right-5 z-20 p-2 rounded-full border hover:scale-105 transition-all cursor-pointer ${
+                  isDarkMode
+                    ? 'bg-slate-900 text-slate-300 hover:text-white border-slate-800 hover:bg-slate-850'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border-slate-200'
+                }`}
               >
                 <X className="w-6 h-6" />
               </button>
@@ -391,7 +421,11 @@ export default function WorkshopGallery() {
               {/* Prev Button */}
               <button
                 onClick={handlePrevPhoto}
-                className="absolute left-4 md:left-8 z-20 p-3 rounded-full bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:scale-105 transition-all cursor-pointer"
+                className={`absolute left-4 md:left-8 z-20 p-3 rounded-full border hover:scale-105 transition-all cursor-pointer ${
+                  isDarkMode
+                    ? 'bg-slate-900 text-slate-300 hover:text-white border-slate-800 hover:bg-slate-850'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border-slate-200'
+                }`}
                 title="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -400,7 +434,11 @@ export default function WorkshopGallery() {
               {/* Next Button */}
               <button
                 onClick={handleNextPhoto}
-                className="absolute right-4 md:right-8 z-20 p-3 rounded-full bg-slate-900/80 text-slate-400 hover:text-white border border-slate-800 hover:scale-105 transition-all cursor-pointer"
+                className={`absolute right-4 md:right-8 z-20 p-3 rounded-full border hover:scale-105 transition-all cursor-pointer ${
+                  isDarkMode
+                    ? 'bg-slate-900 text-slate-300 hover:text-white border-slate-800 hover:bg-slate-850'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border-slate-200'
+                }`}
                 title="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -411,12 +449,16 @@ export default function WorkshopGallery() {
                 initial={{ scale: 0.95, y: 15 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 15 }}
-                className="bg-slate-900 rounded-3xl border border-slate-800 max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+                className={`rounded-3xl border max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col md:flex-row relative transition-colors duration-300 ${
+                  isDarkMode ? 'bg-slate-900 border-slate-800' : 'bg-white border-slate-200'
+                }`}
                 onClick={(e) => e.stopPropagation()}
               >
                 
                 {/* Image Frame */}
-                <div className="w-full md:w-3/5 aspect-video md:aspect-auto md:h-[500px] relative bg-slate-950 flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-slate-800">
+                <div className={`w-full md:w-3/5 aspect-video md:aspect-auto md:h-[500px] relative flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r transition-colors duration-300 ${
+                  isDarkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'
+                }`}>
                   <img
                     src={displaySrc}
                     alt={selectedPhoto.title}
@@ -427,30 +469,35 @@ export default function WorkshopGallery() {
                 </div>
 
                 {/* Info and Specifications block */}
-                <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-between h-auto md:h-[500px] overflow-y-auto">
+                <div className={`w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-between h-auto md:h-[500px] overflow-y-auto transition-colors duration-300 ${
+                  isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'
+                }`}>
                   
                   <div>
                     {/* Category Overlay */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-[10px] text-cyan-400 bg-cyan-950/40 border border-cyan-950 px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold">
+                      <span className={`font-mono text-[10px] border px-2.5 py-1 rounded-full uppercase tracking-wider font-semibold transition-colors duration-300 ${
+                        isDarkMode
+                          ? 'text-cyan-400 bg-cyan-950/40 border-cyan-900'
+                          : 'text-cyan-600 bg-cyan-50 border-cyan-100'
+                      }`}>
                         {selectedPhoto.categoryLabel}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-xl font-bold text-white tracking-tight leading-snug">
+                    <h3 className={`font-display text-xl font-bold tracking-tight leading-snug transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-950'}`}>
                       {selectedPhoto.title}
                     </h3>
                     
-                    <p className="font-sans text-xs text-slate-400 mt-3 leading-relaxed font-light">
+                    <p className={`font-sans text-xs mt-3 leading-relaxed font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-500'}`}>
                       {selectedPhoto.description}
                     </p>
-
 
                   </div>
 
                   {/* Navigation Tip */}
-                  <div className="mt-6 pt-4 border-t border-slate-800 text-center md:text-left">
-                    <span className="text-[10px] font-sans text-slate-500">
+                  <div className={`mt-6 pt-4 border-t text-center md:text-left transition-colors duration-300 ${isDarkMode ? 'border-slate-800' : 'border-slate-100'}`}>
+                    <span className={`text-[10px] font-sans transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-400'}`}>
                       Use Arrow Keys or Click outside to return.
                     </span>
                   </div>

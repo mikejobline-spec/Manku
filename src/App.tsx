@@ -7,12 +7,14 @@ import WorkshopGallery from './components/WorkshopGallery';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Logo from './components/Logo';
-import { Mail, Phone, MapPin, ExternalLink, ShieldCheck, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, ShieldCheck, Globe } from 'lucide-react';
+import { useTheme } from './context/ThemeContext';
 
 export default function App() {
+  const { isDarkMode } = useTheme();
   
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between select-none">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'} flex flex-col justify-between select-none`}>
       
       {/* Header Navigation */}
       <Navbar />
@@ -28,7 +30,7 @@ export default function App() {
       </main>
 
       {/* Corporate Footer */}
-      <footer className="bg-slate-950 text-slate-400 border-t border-slate-900">
+      <footer className={`bg-slate-950 text-slate-400 border-t ${isDarkMode ? 'border-slate-900' : 'border-slate-800'}`}>
         
         {/* Top visual CMYK border bar representing print alignment channels */}
         <div className="h-2 w-full flex">

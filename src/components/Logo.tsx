@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 interface LogoProps {
   variant?: 'horizontal' | 'stacked' | 'iconOnly';
@@ -7,6 +8,7 @@ interface LogoProps {
 }
 
 export default function Logo({ variant = 'horizontal', className = '', height }: LogoProps) {
+  const { isDarkMode } = useTheme();
   // Brand Colors from the uploaded Logo:
   // - Vibrant Orange: #f26522
   // - Deep Navy Blue: #0a2540
@@ -47,7 +49,7 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
         </div>
 
         {/* Company Name "Mankusa" */}
-        <h2 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white font-sans transition-colors mt-2">
+        <h2 className={`text-4xl font-black tracking-tight ${isDarkMode ? 'text-white' : 'text-slate-900'} font-sans transition-colors mt-2`}>
           Mankusa
         </h2>
 
@@ -56,7 +58,7 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
           <span className="text-xs font-bold tracking-[0.1em] text-[#f26522] uppercase font-sans">
             Printing and Publishing
           </span>
-          <div className="w-full h-[3px] bg-slate-900 dark:bg-white mt-1.5 rounded-sm"></div>
+          <div className={`w-full h-[3px] ${isDarkMode ? 'bg-white' : 'bg-slate-900'} mt-1.5 rounded-sm`}></div>
         </div>
       </div>
     );
@@ -73,7 +75,7 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
       {/* Text lockup portion */}
       <div className="flex flex-col justify-center">
         <div className="flex items-baseline gap-1">
-          <span className="font-sans text-2xl font-black tracking-tight text-slate-900 dark:text-white group-hover:text-cyan-400 transition-colors">
+          <span className={`font-sans text-2xl font-black tracking-tight ${isDarkMode ? 'text-white group-hover:text-cyan-400' : 'text-slate-900 group-hover:text-cyan-600'} transition-colors`}>
             Mankusa
           </span>
         </div>
