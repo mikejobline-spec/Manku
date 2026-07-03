@@ -31,8 +31,8 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-t border-slate-800 text-white' : 'bg-slate-50 border-t border-slate-200 text-slate-800'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className={`py-24 sm:py-32 lg:py-40 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-t border-slate-800 text-white' : 'bg-slate-50 border-t border-slate-200 text-slate-800'}`}>
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

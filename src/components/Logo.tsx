@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { getAssetUrl } from '../utils';
 
 interface LogoProps {
   variant?: 'horizontal' | 'stacked' | 'iconOnly';
@@ -19,7 +20,7 @@ export default function Logo({ variant = 'horizontal', className = '', height }:
   // The custom responsive SVG Icon for the book replaced by decoded PNG image
   const renderIcon = (customClass = "h-full w-auto") => (
     <img
-      src="/images/Mankusa Logo.png"
+      src={getAssetUrl("/images/Mankusa Logo.png")}
       alt="Mankusa Logo"
       className={`${customClass} object-contain`}
       referrerPolicy="no-referrer"

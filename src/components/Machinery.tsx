@@ -3,6 +3,7 @@ import { MACHINERY_DATA } from '../data';
 import { MachineCategory } from '../types';
 import { Settings2, Zap, Scaling, CheckSquare, Layers } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { getAssetUrl } from '../utils';
 
 export default function Machinery() {
   const { isDarkMode } = useTheme();
@@ -20,8 +21,8 @@ export default function Machinery() {
   ];
 
   return (
-    <section id="machinery" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-950 text-white border-t border-slate-900' : 'bg-white text-slate-800 border-t border-slate-100'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="machinery" className={`py-24 sm:py-32 lg:py-40 transition-colors duration-300 ${isDarkMode ? 'bg-slate-950 text-white border-t border-slate-900' : 'bg-white text-slate-800 border-t border-slate-100'}`}>
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -55,7 +56,7 @@ export default function Machinery() {
         </div>
 
         {/* Machinery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredMachinery.map((machine) => (
             <div
               key={machine.id}
@@ -68,7 +69,7 @@ export default function Machinery() {
               {/* Image & Category Tag */}
               <div className="relative h-64 overflow-hidden bg-slate-950">
                 <img
-                  src={machine.image}
+                  src={getAssetUrl(machine.image)}
                   alt={machine.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   referrerPolicy="no-referrer"

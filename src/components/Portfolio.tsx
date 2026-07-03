@@ -3,6 +3,7 @@ import { PORTFOLIO_DATA } from '../data';
 import { PortfolioItem, PortfolioCategory } from '../types';
 import { Layers, Palette, Eye, ArrowRight, Activity, Cpu } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { getAssetUrl } from '../utils';
 
 export default function Portfolio() {
   const { isDarkMode } = useTheme();
@@ -21,8 +22,8 @@ export default function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className={`py-20 border-t transition-colors duration-300 ${isDarkMode ? 'bg-slate-950 text-white border-t border-slate-900' : 'bg-white text-slate-800 border-t border-slate-100'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className={`py-24 sm:py-32 lg:py-40 border-t transition-colors duration-300 ${isDarkMode ? 'bg-slate-950 text-white border-t border-slate-900' : 'bg-white text-slate-800 border-t border-slate-100'}`}>
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -69,7 +70,7 @@ export default function Portfolio() {
               {/* Image Area */}
               <div className="relative h-64 md:h-full md:col-span-5 overflow-hidden bg-slate-950">
                 <img
-                  src={item.image}
+                  src={getAssetUrl(item.image)}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                   referrerPolicy="no-referrer"

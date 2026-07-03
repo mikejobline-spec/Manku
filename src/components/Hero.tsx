@@ -89,12 +89,12 @@ export default function Hero({}: HeroProps) {
       {/* Grid Pattern overlay */}
       <div className={`absolute inset-0 bg-[linear-gradient(to_right,${isDarkMode ? '#1e293b12' : '#1e293b05'}_1px,transparent_1px),linear-gradient(to_bottom,${isDarkMode ? '#1e293b12' : '#1e293b05'}_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0`} />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-24 sm:py-32 lg:py-40 z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Hero text */}
-          <div className="lg:col-span-7 flex flex-col space-y-8 text-center lg:text-left">
-            <div className={`inline-flex items-center gap-2 self-center lg:self-start px-3 py-1.5 backdrop-blur border rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 ${isDarkMode ? 'bg-slate-900/80 border-slate-700 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'}`}>
+          <div className="lg:col-span-7 flex flex-col space-y-9 text-center lg:text-left">
+            <div className={`inline-flex items-center gap-2 self-center lg:self-start px-4 py-1.5 backdrop-blur border rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 ${isDarkMode ? 'bg-slate-900/80 border-slate-700 text-slate-300' : 'bg-slate-100 border-slate-200 text-slate-700'}`}>
               <span className="flex h-2 w-2 relative">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isDarkMode ? 'bg-cyan-400' : 'bg-cyan-500'}`}></span>
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${isDarkMode ? 'bg-cyan-400' : 'bg-cyan-600'}`}></span>
@@ -102,14 +102,14 @@ export default function Hero({}: HeroProps) {
               Ethiopia's Premier Book & Offset Press
             </div>
 
-            <h1 className={`font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-              Where Precision Meets <br />
+            <h1 className={`font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-none transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+              Where Precision Meets <br className="hidden sm:inline" />
               <span className={`bg-gradient-to-r ${isDarkMode ? 'from-cyan-400 via-pink-400 to-yellow-300' : 'from-cyan-600 via-pink-500 to-amber-500'} bg-clip-text text-transparent`}>
                 High-Volume Book Mastery
               </span>
             </h1>
 
-            <p className={`font-sans text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+            <p className={`font-sans text-lg sm:text-xl max-w-3xl mx-auto lg:mx-0 leading-relaxed font-light tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
               Mankusa Printing and Publishing (Print House) is Addis Ababa's leading commercial press with over 50 qualified professionals. Since 2001, we have undertaken all printing-related assignments—including books, catalogs, brochures, folders, packaging boxes, newsletters, envelopes, forms, and calendars—guaranteeing competitive rates and excellent quality.
             </p>
 

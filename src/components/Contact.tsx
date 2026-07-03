@@ -97,10 +97,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={`py-20 transition-colors duration-300 scroll-mt-10 border-t ${
+    <section id="contact" className={`py-24 sm:py-32 lg:py-40 transition-colors duration-300 scroll-mt-10 border-t ${
       isDarkMode ? 'bg-slate-900 text-white border-slate-800' : 'bg-white text-slate-800 border-slate-100'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

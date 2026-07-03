@@ -18,6 +18,7 @@ import {
   Activity
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { getAssetUrl } from '../utils';
 
 interface WorkshopPhoto {
   id: string;
@@ -250,13 +251,13 @@ export default function WorkshopGallery() {
   }, [selectedPhoto, activeTab]);
 
   return (
-    <section id="workshop" className={`py-24 border-t relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
+    <section id="workshop" className={`py-24 sm:py-32 lg:py-40 border-t relative overflow-hidden transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-slate-800 text-white' : 'bg-slate-50 border-slate-200 text-slate-800'}`}>
       
       {/* Background radial overlays */}
       <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none transition-colors duration-300 ${isDarkMode ? 'bg-cyan-500/10' : 'bg-cyan-500/5'}`} />
       <div className={`absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none transition-colors duration-300 ${isDarkMode ? 'bg-indigo-500/10' : 'bg-indigo-500/5'}`} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative">
         
         {/* Section Title Header */}
         <div className="max-w-3xl mb-12">
@@ -310,7 +311,7 @@ export default function WorkshopGallery() {
           <AnimatePresence mode="popLayout">
             {filteredPhotos.map((photo, index) => {
               const hasError = imgErrors[photo.id];
-              const displaySrc = hasError ? photo.fallbackUrl : photo.src;
+              const displaySrc = hasError ? photo.fallbackUrl : getAssetUrl(photo.src);
 
               return (
                 <motion.div
@@ -396,7 +397,7 @@ export default function WorkshopGallery() {
       <AnimatePresence>
         {selectedPhoto && (() => {
           const hasError = imgErrors[selectedPhoto.id];
-          const displaySrc = hasError ? selectedPhoto.fallbackUrl : selectedPhoto.src;
+          const displaySrc = hasError ? selectedPhoto.fallbackUrl : getAssetUrl(selectedPhoto.src);
 
           return (
             <motion.div
