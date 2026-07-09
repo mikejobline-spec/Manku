@@ -70,11 +70,11 @@ export default function Navbar({}: NavbarProps) {
               <a
                 key={link.id}
                 href={link.href}
-                className={`font-sans text-sm font-medium tracking-wide transition-colors relative py-1 ${
+                className={`font-sans text-xs font-semibold tracking-wider uppercase transition-colors relative py-1 ${
                   activeSection === link.id
                     ? isDarkMode
-                      ? 'text-cyan-400 font-semibold'
-                      : 'text-cyan-600 font-semibold'
+                      ? 'text-cyan-400'
+                      : 'text-cyan-600'
                     : isDarkMode
                       ? 'text-slate-300 hover:text-white'
                       : 'text-slate-600 hover:text-slate-900'
@@ -154,11 +154,11 @@ export default function Navbar({}: NavbarProps) {
                 key={link.id}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                className={`px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wider uppercase transition-colors ${
                   activeSection === link.id
                     ? isDarkMode
-                      ? 'bg-slate-900 text-cyan-400 font-semibold'
-                      : 'bg-slate-50 text-cyan-600 font-semibold'
+                      ? 'bg-slate-900 text-cyan-400'
+                      : 'bg-slate-50 text-cyan-600'
                     : isDarkMode
                       ? 'text-slate-300 hover:bg-slate-900 hover:text-white'
                       : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'

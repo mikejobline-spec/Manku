@@ -42,7 +42,7 @@ export default function Machinery() {
             <button
               key={cat.val}
               onClick={() => setSelectedCategory(cat.val)}
-              className={`px-4 py-2.5 rounded-lg font-sans text-xs font-semibold tracking-wide border transition-all cursor-pointer ${
+              className={`px-4 py-2.5 rounded-lg font-sans text-xs font-bold tracking-wider uppercase border transition-all cursor-pointer ${
                 selectedCategory === cat.val
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 border-cyan-400 text-white shadow-lg shadow-cyan-500/15'
                   : isDarkMode

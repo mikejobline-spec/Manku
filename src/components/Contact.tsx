@@ -157,8 +157,8 @@ export default function Contact() {
                   <div>
                     <h4 className={`text-xs font-mono uppercase font-bold tracking-wide transition-colors duration-300 ${isDarkMode ? 'text-slate-500' : 'text-slate-500'}`}>Press Room Hotline</h4>
                     <p className={`text-sm mt-1 leading-normal font-light transition-colors duration-300 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                      +251 11 321 0190 <span className="text-xs text-slate-400 font-mono">(Direct)</span><br />
-                      +251 911 555 195 <span className="text-xs text-slate-400 font-mono">(Quotes Dept)</span>
+                      +251 118 346305 <span className="text-xs text-slate-400 font-mono">(Direct)</span><br />
+                      +251 911 624910 <span className="text-xs text-slate-400 font-mono">(Quotes Dept)</span>
                     </p>
                   </div>
                 </div>

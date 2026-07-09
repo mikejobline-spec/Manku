@@ -281,11 +281,11 @@ export default function WorkshopGallery() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 font-sans text-xs font-medium rounded-xl border transition-all flex items-center gap-2 cursor-pointer ${
+              className={`px-4 py-2 font-sans text-xs font-bold uppercase tracking-wider rounded-xl border transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === tab.id
                   ? isDarkMode
-                    ? 'bg-cyan-950/80 text-cyan-400 border-cyan-500/50 font-semibold shadow-sm'
-                    : 'bg-cyan-50 text-cyan-600 border-cyan-300 font-semibold shadow-sm'
+                    ? 'bg-cyan-950/80 text-cyan-400 border-cyan-500/50 shadow-sm'
+                    : 'bg-cyan-50 text-cyan-600 border-cyan-300 shadow-sm'
                   : isDarkMode
                     ? 'bg-slate-900 hover:bg-slate-800 text-slate-400 border-slate-800 hover:text-white'
                     : 'bg-white hover:bg-slate-100 text-slate-500 border-slate-200 hover:text-slate-700'

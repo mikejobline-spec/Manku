@@ -92,9 +92,12 @@ export default function App() {
                     Addis Ababa, Ethiopia
                   </span>
                 </li>
-                <li className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-slate-500 flex-shrink-0" />
-                  <span>+251 11 321 0190</span>
+                <li className="flex items-start gap-2.5">
+                  <Phone className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
+                  <div className="flex flex-col">
+                    <span>+251 118 346305 <span className="text-[10px] text-slate-500">(Direct)</span></span>
+                    <span>+251 911 624910 <span className="text-[10px] text-slate-500">(Quotes)</span></span>
+                  </div>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-slate-500 flex-shrink-0" />
