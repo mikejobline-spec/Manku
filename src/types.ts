@@ -51,6 +51,7 @@ export interface ClientInquiry {
   companyName?: string;
   email: string;
   phone: string;
+  subject: string;
   materialId: string;
   size: string;
   quantity: number;

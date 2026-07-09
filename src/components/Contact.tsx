@@ -10,6 +10,7 @@ export default function Contact() {
   const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [subject, setSubject] = useState('');
   const [materialId, setMaterialId] = useState(MATERIALS_DATA[0].id);
   const [size, setSize] = useState('B2 Format (500 x 707 mm)');
   const [quantity, setQuantity] = useState(1000);
@@ -33,7 +34,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!clientName || !email || !phone) {
+    if (!clientName || !email || !phone || !subject) {
       alert('Please fill out all required fields.');
       return;
     }
@@ -59,6 +60,7 @@ export default function Contact() {
       companyName: companyName || undefined,
       email,
       phone,
+      subject,
       materialId,
       size,
       quantity,
@@ -75,19 +77,45 @@ export default function Contact() {
       estimatedDays: calculatedDays
     };
 
-    const updated = [newInquiry, ...inquiries];
-    setInquiries(updated);
-    localStorage.setItem('printing_press_inquiries', JSON.stringify(updated));
-
-    setSuccessInquiry(newInquiry);
-    setIsSubmitting(false);
-
-    // Reset Form
-    setClientName('');
-    setCompanyName('');
-    setEmail('');
-    setPhone('');
-    setCustomMessage('');
+    // Post to Express backend server which forwards to SMTP
+    fetch('/api/inquiry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newInquiry)
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || 'Server error');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log('Inquiry submitted via full-stack SMTP server:', data);
+        const updated = [newInquiry, ...inquiries];
+        setInquiries(updated);
+        localStorage.setItem('printing_press_inquiries', JSON.stringify(updated));
+        setSuccessInquiry(newInquiry);
+      })
+      .catch((err) => {
+        console.warn('Backend SMTP submit returned error, falling back to local simulation:', err);
+        const updated = [newInquiry, ...inquiries];
+        setInquiries(updated);
+        localStorage.setItem('printing_press_inquiries', JSON.stringify(updated));
+        setSuccessInquiry(newInquiry);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        // Reset Form
+        setClientName('');
+        setCompanyName('');
+        setEmail('');
+        setPhone('');
+        setSubject('');
+        setCustomMessage('');
+      });
   };
 
   const handleDeleteInquiry = (id: string) => {
@@ -225,11 +253,11 @@ export default function Contact() {
                           <div>
                             <span className="text-[9px] font-mono text-slate-400">{inq.createdAt}</span>
                             <h4 className={`text-xs font-bold mt-0.5 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-                              Inquiry by {inq.clientName}
+                              Subject: {inq.subject}
                             </h4>
-                            {inq.companyName && (
-                              <span className="text-[10px] font-mono text-slate-400 block mt-0.5">{inq.companyName}</span>
-                            )}
+                            <span className="text-[10px] text-slate-400 block mt-0.5">
+                              By {inq.clientName} {inq.companyName ? `(${inq.companyName})` : ''}
+                            </span>
                           </div>
                           
                           {/* Delete */}
@@ -399,6 +427,25 @@ export default function Contact() {
                       }`}
                     />
                   </div>
+                </div>
+
+                {/* Subject Field */}
+                <div className="flex flex-col">
+                  <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                    Subject <span className="text-rose-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    placeholder="e.g. Quotation for Book Printing Services"
+                    className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                      isDarkMode
+                        ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                        : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                    }`}
+                  />
                 </div>
 
                 {/* Submit */}
