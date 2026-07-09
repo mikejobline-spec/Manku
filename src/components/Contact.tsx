@@ -373,7 +373,7 @@ export default function Contact() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="mikejobline@gmail.com"
+                      placeholder="example@gmail.com"
                       className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
                         isDarkMode
                           ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'

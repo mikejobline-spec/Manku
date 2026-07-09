@@ -71,7 +71,7 @@ export default function App() {
                   <a href="#workshop" className="hover:text-white transition-colors">Our Workshop Floor</a>
                 </li>
                 <li>
-                  <a href="#portfolio" className="hover:text-white transition-colors">Completed Master Gallery</a>
+                  <a href="#portfolio" className="hover:text-white transition-colors">Our Works Gallery</a>
                 </li>
                 <li>
                   <a href="#contact" className="hover:text-white transition-colors">Inquiries & Quote Estimations</a>

@@ -160,7 +160,7 @@ export default function Portfolio() {
                 : 'bg-cyan-50/80 text-cyan-700 border-cyan-100/80'
             }`}>
               <Sparkles className="w-3 h-3" />
-              Prestige Portfolio • Est. 2001
+              Prestige Works • Est. 2001
             </div>
 
             <h2 className={`font-display text-4xl sm:text-5xl font-extrabold tracking-tight transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
@@ -227,15 +227,7 @@ export default function Portfolio() {
             </span>
           </div>
 
-          {/* Drag Instruction Banner */}
-          <div className="flex justify-center mb-10">
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-wide ${
-              isDarkMode ? 'bg-slate-900/60 text-slate-400' : 'bg-slate-100 text-slate-500'
-            }`}>
-              <ArrowLeftRight className="w-3.5 h-3.5 animate-pulse" />
-              <span>Drag to spin the cylinder • Slides rotate in infinite loop</span>
-            </div>
-          </div>
+          {/* Drag Instruction Banner removed */}
 
           {/* 3D Viewport Container (Taller, wider, relaxed) */}
           <div 

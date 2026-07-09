@@ -42,7 +42,7 @@ export default function Navbar({}: NavbarProps) {
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Machinery', href: '#machinery', id: 'machinery' },
     { label: 'Workshop', href: '#workshop', id: 'workshop' },
-    { label: 'Portfolio', href: '#portfolio', id: 'portfolio' },
+    { label: 'Our Works', href: '#portfolio', id: 'portfolio' },
     { label: 'Inquiries', href: '#contact', id: 'contact' },
   ];
 
