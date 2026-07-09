@@ -58,6 +58,4 @@ export interface ClientInquiry {
   customMessage: string;
   status: 'Received' | 'Assigned to Estimator' | 'Quote Generated';
   createdAt: string;
-  estimatedCost: number;
-  estimatedDays: number;
 }

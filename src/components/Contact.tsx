@@ -41,19 +41,6 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Dynamic calculations for the inquiry submission
-    const selectedMaterial = MATERIALS_DATA.find(m => m.id === materialId) || MATERIALS_DATA[0];
-    
-    // Offset standard costs
-    const basePlateSetupCost = 250; // Offset plates setup
-    const paperCost = (quantity / 1000) * selectedMaterial.basePricePer1000;
-    const runLaborCost = (quantity / 5000) * 80; // $80 per 5000 sheets printing time
-    
-    const calculatedCost = basePlateSetupCost + paperCost + runLaborCost;
-    
-    // Estimated lead time based on volume
-    const calculatedDays = quantity <= 1000 ? 3 : quantity <= 5000 ? 5 : 8;
-
     const newInquiry: ClientInquiry = {
       id: 'inq_' + Date.now(),
       clientName,
@@ -72,9 +59,7 @@ export default function Contact() {
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-      }),
-      estimatedCost: calculatedCost,
-      estimatedDays: calculatedDays
+      })
     };
 
     // Post to Express backend server which forwards to SMTP
@@ -441,6 +426,93 @@ export default function Contact() {
                     onChange={(e) => setSubject(e.target.value)}
                     placeholder="e.g. Quotation for Book Printing Services"
                     className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                      isDarkMode
+                        ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                        : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                    }`}
+                  />
+                </div>
+
+                {/* Paper Material & Sheet Size */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col">
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                      Paper Material <span className="text-rose-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={materialId}
+                      onChange={(e) => setMaterialId(e.target.value)}
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 focus:border-cyan-500'
+                      }`}
+                    >
+                      {MATERIALS_DATA.map((mat) => (
+                        <option key={mat.id} value={mat.id} className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>
+                          {mat.name} ({mat.weight})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                      Sheet Size <span className="text-rose-500">*</span>
+                    </label>
+                    <select
+                      required
+                      value={size}
+                      onChange={(e) => setSize(e.target.value)}
+                      className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                        isDarkMode
+                          ? 'bg-slate-900 border-slate-850 text-white focus:border-cyan-500'
+                          : 'bg-white border-slate-200 text-slate-800 focus:border-cyan-500'
+                      }`}
+                    >
+                      <option value="B2 Format (500 x 707 mm)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>B2 Format (500 x 707 mm)</option>
+                      <option value="A1 Format (594 x 841 mm)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>A1 Format (594 x 841 mm)</option>
+                      <option value="A2 Format (420 x 594 mm)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>A2 Format (420 x 594 mm)</option>
+                      <option value="A3 Format (297 x 420 mm)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>A3 Format (297 x 420 mm)</option>
+                      <option value="A4 Format (210 x 297 mm)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>A4 Format (210 x 297 mm)</option>
+                      <option value="Custom Size (Specify in Message)" className={isDarkMode ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}>Custom Size (Specify in Message)</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Quantity Required */}
+                <div className="flex flex-col">
+                  <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                    Quantity Required <span className="text-rose-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    required
+                    min={1}
+                    value={quantity}
+                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 0))}
+                    placeholder="e.g. 1000"
+                    className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 ${
+                      isDarkMode
+                        ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
+                        : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'
+                    }`}
+                  />
+                </div>
+
+                {/* Client's Message / Design Specifications */}
+                <div className="flex flex-col">
+                  <label className={`font-mono text-[10px] uppercase font-bold mb-1.5 transition-colors duration-300 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                    Client's Message / Design Specifications <span className="text-rose-500">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={customMessage}
+                    onChange={(e) => setCustomMessage(e.target.value)}
+                    placeholder="Provide your detailed printing guidelines, color counts, binding style, or custom sheet sizes here..."
+                    className={`p-3 border rounded-lg text-sm transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-cyan-500 resize-none ${
                       isDarkMode
                         ? 'bg-slate-900 border-slate-850 text-white placeholder-slate-500 focus:border-cyan-500'
                         : 'bg-white border-slate-200 text-slate-800 placeholder-slate-400 focus:border-cyan-500'

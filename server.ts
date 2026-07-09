@@ -32,9 +32,7 @@ async function startServer() {
       materialId,
       size,
       quantity,
-      customMessage,
-      estimatedCost,
-      estimatedDays
+      customMessage
     } = req.body;
 
     if (!clientName || !email || !phone || !subject) {
@@ -59,67 +57,59 @@ async function startServer() {
     const emailSubject = `[Mankusa Printing Inquiry] ${subject}`;
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; color: #1e293b;">
-        <div style="text-align: center; border-bottom: 2px solid #06b6d4; padding-bottom: 15px; margin-bottom: 20px;">
-          <h1 style="color: #0f172a; margin: 0; font-size: 24px;">New Print Inquiry</h1>
-          <p style="color: #0891b2; font-size: 14px; font-weight: bold; margin: 5px 0 0 0; text-transform: uppercase; letter-spacing: 1px;">Mankusa Printing Press</p>
-        </div>
-        
-        <p style="font-size: 16px; line-height: 1.5;">A client has submitted a custom print specification inquiry on the website. Below are the details:</p>
-        
-        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; font-weight: bold; width: 35%; border-bottom: 1px solid #f1f5f9;">Client Name:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${clientName}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Company Name:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${companyName || "N/A"}</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Email Address:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${email}" style="color: #0891b2; text-decoration: none;">${email}</a></td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Phone Number:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${phone}</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Subject:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9; font-weight: bold;">${subject}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Paper Material:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${material}</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Sheet Size:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${size}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Quantity Required:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${quantity} sheets</td>
-          </tr>
-          <tr style="background-color: #f8fafc;">
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Estimated Cost:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9; color: #0891b2; font-weight: bold;">$${(estimatedCost || 0).toFixed(2)}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Estimated Lead Time:</td>
-            <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${estimatedDays || 5} business days</td>
-          </tr>
-        </table>
-        
-        <div style="margin-top: 25px;">
-          <p style="font-weight: bold; margin-bottom: 8px;">Client's Message / Design Specifications:</p>
-          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 15px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; color: #334155;">${customMessage || "No additional message provided."}</div>
-        </div>
-        
-        <div style="margin-top: 30px; font-size: 11px; color: #64748b; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 15px;">
-          This email was generated automatically by the Mankusa Printing Press inquiry system.<br/>
-          SMTP Server configured to host: <strong>${smtpHost}</strong> (Port: ${smtpPort})
-        </div>
-      </div>
-    `;
+         <div style="text-align: center; border-bottom: 2px solid #06b6d4; padding-bottom: 15px; margin-bottom: 20px;">
+           <h1 style="color: #0f172a; margin: 0; font-size: 24px;">New Print Inquiry</h1>
+           <p style="color: #0891b2; font-size: 14px; font-weight: bold; margin: 5px 0 0 0; text-transform: uppercase; letter-spacing: 1px;">Mankusa Printing Press</p>
+         </div>
+         
+         <p style="font-size: 16px; line-height: 1.5;">A client has submitted a custom print specification inquiry on the website. Below are the details:</p>
+         
+         <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+           <tr style="background-color: #f8fafc;">
+             <td style="padding: 10px; font-weight: bold; width: 35%; border-bottom: 1px solid #f1f5f9;">Client Name:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${clientName}</td>
+           </tr>
+           <tr>
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Company Name:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${companyName || "N/A"}</td>
+           </tr>
+           <tr style="background-color: #f8fafc;">
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Email Address:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${email}" style="color: #0891b2; text-decoration: none;">${email}</a></td>
+           </tr>
+           <tr>
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Phone Number:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${phone}</td>
+           </tr>
+           <tr style="background-color: #f8fafc;">
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Subject:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9; font-weight: bold;">${subject}</td>
+           </tr>
+           <tr>
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Paper Material:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${material}</td>
+           </tr>
+           <tr style="background-color: #f8fafc;">
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Sheet Size:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${size}</td>
+           </tr>
+           <tr>
+             <td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #f1f5f9;">Quantity Required:</td>
+             <td style="padding: 10px; border-bottom: 1px solid #f1f5f9;">${quantity} sheets</td>
+           </tr>
+         </table>
+         
+         <div style="margin-top: 25px;">
+           <p style="font-weight: bold; margin-bottom: 8px;">Client's Message / Design Specifications:</p>
+           <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 15px; font-size: 14px; line-height: 1.6; white-space: pre-wrap; color: #334155;">${customMessage || "No additional message provided."}</div>
+         </div>
+         
+         <div style="margin-top: 30px; font-size: 11px; color: #64748b; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 15px;">
+           This email was generated automatically by the Mankusa Printing Press inquiry system.<br/>
+           SMTP Server configured to host: <strong>${smtpHost}</strong> (Port: ${smtpPort})
+         </div>
+       </div>
+     `;
 
     // Check if SMTP is configured
     if (!smtpUser || !smtpPass) {
