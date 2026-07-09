@@ -375,58 +375,94 @@ export const MATERIALS_DATA: MaterialItem[] = [
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 'p1',
-    title: "Ermias Amelga's Books & Memoirs",
+    title: 'Bespoke Academic Textbook - Volume 1',
     category: 'publishing',
-    image: '/images/workshop pic (1).jpg',
-    description: 'A premium, high-volume book publication project for Ermias Amelga. Features dense black lithography typography layers, smooth solids, and robust perfect spine binding designed for lifetime readability.',
+    image: '/images/Book 1.webp',
+    description: 'A premium, high-volume book publication project featuring dense black lithography typography layers and robust binding.',
     specsUsed: {
-      paperStock: 'Fine Bookwove 80 gsm (Inner pages) & Premium Silk Coated 350 gsm (Cover)',
-      pressUsed: 'Heidelberg Speedmaster MOZP (Two Unit Perfecting Machine)',
-      specialFinishes: ['Perfect Spine Binding with Muller Martini Five Clamp', 'Matte Celloglaze Cover Lamination']
+      paperStock: 'Fine Bookwove 80 gsm & Premium Silk Coated 350 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Perfect Spine Binding', 'Matte Celloglaze Cover Lamination']
     }
   },
   {
     id: 'p2',
-    title: "Zenebe Wele's Literary Publications",
+    title: 'Literary Novel - Volume 2',
     category: 'publishing',
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800',
-    description: 'A beautiful collection of literary works printed with rich ink holdouts and precise signature alignments. Features thread-sewn book blocks for a classic, durable book layout.',
+    image: '/images/Book 2.webp',
+    description: 'A beautiful collection of literary works printed with rich ink holdouts and precise signature alignments.',
     specsUsed: {
       paperStock: 'Classic Cream 80 gsm & High-Density Cover Board 400 gsm',
-      pressUsed: 'Miller Two-Unit Offset (32-page signature output)',
-      specialFinishes: ['Ishida Japan Automatic Section Thread Sewing', 'MBO Folding and signature grouping']
+      pressUsed: 'Miller Two-Unit Offset',
+      specialFinishes: ['Automatic Section Thread Sewing', 'MBO Folding and signature grouping']
     }
   },
   {
     id: 'p3',
-    title: "National Alcohol & Liquor Factory Packaging Suite",
-    category: 'packaging',
-    image: 'https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&q=80&w=800',
-    description: 'Custom outer carry boxes and packaging sleeves printed with vibrant CMYK and spot inks to highlight premium Ethiopian heritage spirits.',
+    title: 'Cultural Heritage Publication - Volume 3',
+    category: 'publishing',
+    image: '/images/Book 3.webp',
+    description: 'Premium color-calibrated printing displaying rich cultural heritage illustration layouts.',
     specsUsed: {
-      paperStock: 'Eco-Kraft Raw Unbleached Board 320 gsm',
-      pressUsed: 'Heidelberg Speedmaster MOZP (spot-color mode)',
-      specialFinishes: ['Platin Letterpress Die-Cutting & Creasing', 'High-Gloss spot varnish overlays']
+      paperStock: 'Fine Bookwove 80 gsm & Premium Silk Coated 350 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Perfect Spine Binding', 'Matte Celloglaze Cover Lamination']
     }
   },
   {
     id: 'p4',
-    title: "Worabe Hospital Patient Record Books & Forms",
-    category: 'corporate',
-    image: '/images/workshop pic (3).jpg',
-    description: 'An expansive run of patient logbooks, sequentially numbered forms, and medical envelopes. Designed with high carbon-copy alignment and clean micro-perforations.',
+    title: 'Educational Study Guide - Volume 4',
+    category: 'publishing',
+    image: '/images/Book 4.webp',
+    description: 'High-volume school booklet printing featuring crisp black letterforms for optimal readability.',
     specsUsed: {
       paperStock: 'Fine Bookwove Printing Bond 80 gsm',
-      pressUsed: 'Heidelberg GTO 52 (One Unit with numbering options)',
-      specialFinishes: ['Heidelberg Sequential Document Numbering', 'Inline Perforating Machine tear lanes']
+      pressUsed: 'Heidelberg KORD 64 Single Color Press',
+      specialFinishes: ['Agrafix Wire Stitching', 'Polar 115 Precision Cut Margin trim']
     }
   },
   {
     id: 'p5',
-    title: "Yeka Police Academy Official Handbooks",
+    title: 'Poetry & Prose Collection - Volume 5',
+    category: 'publishing',
+    image: '/images/Book 5.webp',
+    description: 'Elegant cream paper interiors combined with robust high-density binding for local poetry works.',
+    specsUsed: {
+      paperStock: 'Classic Cream 80 gsm & High-Density Cover Board 400 gsm',
+      pressUsed: 'Miller Two-Unit Offset',
+      specialFinishes: ['Automatic Section Thread Sewing', 'MBO Folding and signature grouping']
+    }
+  },
+  {
+    id: 'p6',
+    title: 'Historical Biography - Volume 6',
+    category: 'publishing',
+    image: '/images/Book 6.webp',
+    description: 'A deep look at local historical figures, featuring durable perfect bind spine finishing.',
+    specsUsed: {
+      paperStock: 'Fine Bookwove 80 gsm & Premium Silk Coated 350 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Perfect Spine Binding', 'Matte Celloglaze Cover Lamination']
+    }
+  },
+  {
+    id: 'p7',
+    title: 'Corporate Annual Review - Volume 7',
     category: 'corporate',
-    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=800',
-    description: 'Saddle-stitched police procedural manuals built with heavy scuff-resistant covers for daily tactical field reference.',
+    image: '/images/Book 7.webp',
+    description: 'An expansive annual report with rich ink density and high-contrast corporate colors.',
+    specsUsed: {
+      paperStock: 'Premium Silk Coated Cardstock 350 gsm',
+      pressUsed: 'Miller Two-Unit Offset Machine',
+      specialFinishes: ['High-gloss Spot UV coating', 'MBO Folding parallel folds']
+    }
+  },
+  {
+    id: 'p8',
+    title: 'Institutional Training Manual - Volume 8',
+    category: 'corporate',
+    image: '/images/Book 8.webp',
+    description: 'A robust tactical handbook built for intensive, daily reference and durable field handling.',
     specsUsed: {
       paperStock: 'Premium Silk Coated 350 gsm (Cover) & 80 gsm bond (Inners)',
       pressUsed: 'Heidelberg KORD 64 Single Color Press',
@@ -434,15 +470,99 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     }
   },
   {
-    id: 'p6',
-    title: "Ermias Amelga & Ethiopia Industries Annual Catalogues",
+    id: 'p9',
+    title: 'Technical Guidebook - Volume 9',
     category: 'corporate',
-    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&q=80&w=800',
-    description: 'Large-scale corporate portfolio catalogs showcasing industrial outputs, with extreme color calibration matching international standards.',
+    image: '/images/Book 9.webp',
+    description: 'Industrial machinery and hardware operating manual printed with extreme graphic precision.',
+    specsUsed: {
+      paperStock: 'Fine Bookwove Printing Bond 80 gsm',
+      pressUsed: 'Heidelberg GTO 52',
+      specialFinishes: ['Heidelberg Sequential Document Numbering', 'Inline Perforating']
+    }
+  },
+  {
+    id: 'p10',
+    title: 'Public Agency Directory - Volume 10',
+    category: 'corporate',
+    image: '/images/Book 10.webp',
+    description: 'Comprehensive directory of public institutions, bound with an elegant and scuff-resistant layout.',
+    specsUsed: {
+      paperStock: 'Fine Bookwove 80 gsm & Premium Silk Coated 350 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Perfect Spine Binding with Muller Martini', 'Matte Cover Lamination']
+    }
+  },
+  {
+    id: 'p11',
+    title: 'Regional Development Report - Volume 11',
+    category: 'corporate',
+    image: '/images/Book 11.webp',
+    description: 'Large-scale statistical publications highlighting developmental milestones with clear graphics.',
     specsUsed: {
       paperStock: 'Premium Silk Coated Cardstock 350 gsm',
       pressUsed: 'Miller Two-Unit Offset Machine',
       specialFinishes: ['High-gloss Spot UV coating', 'MBO Folding parallel folds']
+    }
+  },
+  {
+    id: 'p12',
+    title: 'Luxury Portfolio Showcase - Volume 12',
+    category: 'packaging',
+    image: '/images/Book 12.webp',
+    description: 'Bespoke leatherette and high-density board presentation showcase of local hospitality work.',
+    specsUsed: {
+      paperStock: 'Eco-Kraft Raw Unbleached Board 320 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Platin Letterpress Die-Cutting', 'High-Gloss spot varnish overlays']
+    }
+  },
+  {
+    id: 'p13',
+    title: 'Spirits Presentation Catalog - Volume 13',
+    category: 'packaging',
+    image: '/images/Book 13.webp',
+    description: 'Custom outer display box book catalog featuring dynamic brand layouts.',
+    specsUsed: {
+      paperStock: 'Eco-Kraft Raw Unbleached Board 320 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Platin Letterpress Die-Cutting', 'High-Gloss spot varnish overlays']
+    }
+  },
+  {
+    id: 'p14',
+    title: 'Custom Stationery Collection - Volume 14',
+    category: 'packaging',
+    image: '/images/Book 14.webp',
+    description: 'Bespoke packaging and luxury paper sample binder showcasing high-density texture cardstocks.',
+    specsUsed: {
+      paperStock: 'Eco-Kraft Raw Unbleached Board 320 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Platin Letterpress Die-Cutting', 'High-Gloss spot varnish overlays']
+    }
+  },
+  {
+    id: 'p15',
+    title: 'Giftware Box Catalog - Volume 15',
+    category: 'packaging',
+    image: '/images/Book 15.webp',
+    description: 'Exquisite color-printed catalog highlighting modern product boxing configurations.',
+    specsUsed: {
+      paperStock: 'Eco-Kraft Raw Unbleached Board 320 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Platin Letterpress Die-Cutting', 'High-Gloss spot varnish overlays']
+    }
+  },
+  {
+    id: 'p16',
+    title: 'Luxury Cardboard Box Spec - Volume 16',
+    category: 'packaging',
+    image: '/images/Book 16.webp',
+    description: 'Heavy duty, rigid premium custom sample book displaying diverse laminations and textures.',
+    specsUsed: {
+      paperStock: 'Heavy Premium Book Cover Board 400 gsm',
+      pressUsed: 'Heidelberg Speedmaster MOZP',
+      specialFinishes: ['Platin Letterpress Die-Cutting', 'Matte Celloglaze Cover Lamination']
     }
   }
 ];
