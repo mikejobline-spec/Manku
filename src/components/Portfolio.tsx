@@ -48,18 +48,25 @@ export default function Portfolio() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 640) {
-        setRadius(380); // larger radius on mobile
+      if (width < 380) {
+        setRadius(340); // ultra-compact screens
+      } else if (width < 640) {
+        setRadius(460); // standard mobile
       } else if (width < 1024) {
-        setRadius(540); // tablet size
+        setRadius(660); // tablet size
       } else {
-        setRadius(760); // wider, spacious full-size desktop
+        setRadius(880); // wider, spacious full-size desktop
       }
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Dynamically scale card dimensions based on radius to mathematically guarantee zero overlap
+  const cardWidth = Math.min(Math.round(radius * 0.44), 380);
+  const cardHeight = Math.round(cardWidth * 1.25);
+  const viewportHeight = cardHeight + 120;
 
   // 3D Physics Loop (Auto-rotate + Lerp inertia + Friction)
   useEffect(() => {
@@ -232,18 +239,21 @@ export default function Portfolio() {
 
           {/* 3D Viewport Container (Taller, wider, relaxed) */}
           <div 
-            className="relative w-full h-[540px] sm:h-[620px] flex items-center justify-center overflow-visible select-none"
+            className="relative w-full flex items-center justify-center overflow-visible select-none"
             style={{
+              height: `${viewportHeight}px`,
               perspective: '2200px',
               perspectiveOrigin: '50% 35%', // Elevated camera angle to see the 3D rotating circle beautifully
             }}
           >
             {/* The 3D Rotating Cylinder / Spinner Wrapper */}
             <div 
-              className={`relative w-[320px] sm:w-[380px] h-[400px] sm:h-[480px] cursor-grab ${
+              className={`relative cursor-grab ${
                 isDragging ? 'cursor-grabbing' : ''
               }`}
               style={{
+                width: `${cardWidth}px`,
+                height: `${cardHeight}px`,
                 transformStyle: 'preserve-3d',
                 transform: `translateZ(${-radius}px) rotateY(${rotation}deg)`,
               }}
@@ -261,7 +271,7 @@ export default function Portfolio() {
                 return (
                   <div 
                     key={item.carouselId}
-                    className="absolute inset-0 transition-opacity duration-300"
+                    className="absolute inset-0 transition-opacity duration-300 p-4 sm:p-6 flex items-center justify-center"
                     style={{
                       transform: `rotateY(${theta}deg) translateZ(${radius}px)`,
                       transformOrigin: '50% 50%',
