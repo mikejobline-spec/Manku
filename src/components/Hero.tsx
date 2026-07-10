@@ -77,7 +77,7 @@ export default function Hero({}: HeroProps) {
       {/* Background Hero Image with light/dark overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/workshop pic (12).jpg"
+          src="/images/workshop pic (12).webp"
           alt="Heavy-Duty Commercial Offset Press Machine in Action"
           className={`w-full h-full object-cover scale-105 motion-safe:animate-[pulse_10s_infinite_alternate] transition-opacity duration-300 ${isDarkMode ? 'opacity-35' : 'opacity-20'}`}
           referrerPolicy="no-referrer"

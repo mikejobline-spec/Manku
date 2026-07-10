@@ -5,7 +5,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm1',
     name: 'Heidelberg Speedmaster MOZP',
     category: 'offset',
-    image: '/images/MoZp Two unit printing machine.jpg',
+    image: '/images/MoZp Two unit printing machine.webp',
     description: 'Two-unit heavy-duty offset printing press equipped with straight and perfector capabilities. It is the workhorse of our book publication and commercial lines.',
     specs: {
       speed: '5,000 sheets/day',
@@ -19,7 +19,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm2',
     name: 'Miller Two-Unit Press',
     category: 'offset',
-    image: '/images/Miller two unit printing machine.jpg',
+    image: '/images/Miller two unit printing machine.webp',
     description: 'High-volume two-unit offset press with automatic back & front sheet perfecting. It handles large-scale paper inputs for optimal signature creation.',
     specs: {
       speed: '5,000 sheets/day',
@@ -33,7 +33,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm3',
     name: 'Heidelberg GTO 52',
     category: 'offset',
-    image: '/images/Gto 52 printing machine.jpg',
+    image: '/images/Gto 52 printing machine.webp',
     description: 'An extremely reliable single-unit offset machine, highly optimized for colored spot prints, numbering work, and high-contrast letterforms.',
     specs: {
       speed: '5,000 prints/day',
@@ -47,7 +47,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm4',
     name: 'Heidelberg KORD 64',
     category: 'offset',
-    image: '/images/Kord 64 printing machine.jpg',
+    image: '/images/Kord 64 printing machine.webp',
     description: 'A classic and robust single-color offset lithography press. Highly efficient in maintaining consistent black-ink density for continuous typography layers.',
     specs: {
       speed: '4,500 sheets/day',
@@ -61,7 +61,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm5',
     name: 'Platin letterpress & Offset',
     category: 'offset',
-    image: '/images/Platine printing machine.jpg',
+    image: '/images/Platine printing machine.webp',
     description: 'A specialized single-unit offset and letterpress machine. Perfect for unique letterpress prints, custom-positioned numbering, and rigid media cutting.',
     specs: {
       speed: '5,000 prints/day',
@@ -75,7 +75,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm6',
     name: 'Polar 115 CM / 115 EMC-Monitor',
     category: 'post-press',
-    image: '/images/Polar 115 cm cutting machine.jpg',
+    image: '/images/Polar 115 cm cutting machine.webp',
     description: 'High-speed heavy-duty programmatic cutting system. Cuts thick stacks of paper with micro-millimeter precision guided by a computerized digital monitor.',
     specs: {
       speed: 'Automatic computerized cycling',
@@ -89,7 +89,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm7',
     name: 'COMO 92 Programmable Cutter',
     category: 'post-press',
-    image: '/images/Como 92 cutting machine.jpg',
+    image: '/images/Como 92 cutting machine.webp',
     description: 'Compact automatic cutting system featuring fully digital programmatic control, ensuring fast setup and high safety standards.',
     specs: {
       speed: 'Fast automatic knife stroke',
@@ -103,7 +103,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm8',
     name: 'Wohlenberg Rapid Trimmer',
     category: 'post-press',
-    image: '/images/Wohlenberg three knife cutting machine.jpg',
+    image: '/images/Wohlenberg three knife cutting machine.webp',
     description: 'Heavy-duty industrial book-block trimmer with support for both manual feeds and automatic inline operations.',
     specs: {
       speed: '5,000 to 6,000 copy trimming/hour',
@@ -117,7 +117,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm9',
     name: 'MBO Automatic Folding Machine',
     category: 'post-press',
-    image: '/images/MBO folding machine quantity two.jpg',
+    image: '/images/MBO folding machine quantity two.webp',
     description: 'Extremely fast automatic folding press designed to structure raw printed paper sheets into pristine folded book signatures.',
     specs: {
       speed: 'Folding 50,000 pages per day',
@@ -131,7 +131,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm10',
     name: 'Muller Martini Five Clamp Perfect Binder',
     category: 'post-press',
-    image: '/images/Muller Martini five clamp quantity.jpg',
+    image: '/images/Muller Martini five clamp quantity.webp',
     description: 'Continuous industrial perfect binding machine. Glues paper signatures with specialized hot side-glues to produce flat-laying novel and manual spines.',
     specs: {
       speed: 'Binds 4,000 to 5,000 books per day',
@@ -145,7 +145,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm11',
     name: 'Ishida Japan Book Sewing',
     category: 'post-press',
-    image: '/images/Ishida Japan book sewing machín.jpg',
+    image: '/images/Ishida Japan book sewing machin.webp',
     description: 'Premium automatic book-block thread section sewing machine imported from Japan. Provides robust and durable sewing for heavy archival books.',
     specs: {
       speed: 'High-speed automatic loop stitching',
@@ -159,7 +159,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm12',
     name: 'Agrafix Wire Stitching Machine',
     category: 'post-press',
-    image: '/images/agrafix Wire stitching machine.jpg',
+    image: '/images/agrafix Wire stitching machine.webp',
     description: 'High-speed industrial wire stitching unit. Staples brochure spines with extreme rapidity and deep structural holds.',
     specs: {
       speed: 'Up to 170 stitches per minute',
@@ -173,7 +173,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm13',
     name: 'Uninterrupted 130KV Generator Backup',
     category: 'pre-press',
-    image: '/images/130KV Generator.jpg',
+    image: '/images/130KV Generator.webp',
     description: 'Heavy industrial grade backup generator supplying continuous energy. Safeguards the entire facility against power fluctuations, guaranteeing 100% production uptime.',
     specs: {
       speed: 'Instant 100% load startup',
@@ -187,7 +187,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm14',
     name: 'Heidelberg Speedmaster 4-Color Press',
     category: 'offset',
-    image: '/images/Heidelberg Speedmaster.jpg',
+    image: '/images/Heidelberg Speedmaster.webp',
     description: 'High-fidelity 4-color offset printing press. Ideal for premium color-saturated book covers, luxury packaging folding cartons, and high-end advertising.',
     specs: {
       speed: '15,000 sheets/hour',
@@ -201,7 +201,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm15',
     name: 'CTP Plate Making Machine',
     category: 'pre-press',
-    image: '/images/PLATE MAKING machine.jpg',
+    image: '/images/PLATE MAKING machine.webp',
     description: 'High-resolution Computer-to-Plate laser exposing system. Solidifies precise digital dots directly onto metal offset plates with zero mechanical loss.',
     specs: {
       speed: '24 Plates per hour',
@@ -215,7 +215,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm16',
     name: 'Plate Processor & Chemical Developer',
     category: 'pre-press',
-    image: '/images/PLATE Procesor machine.jpg',
+    image: '/images/PLATE Procesor machine.webp',
     description: 'Automated inline developer that rinses, gum-coats, and bakes aluminum offset plates. Prepares plates for heavy mechanical friction on the offset fleet.',
     specs: {
       speed: '1.2 meters per minute',
@@ -229,7 +229,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm17',
     name: 'High-Speed Perforating & Creasing Machine',
     category: 'post-press',
-    image: '/images/Perforating machine.jpg',
+    image: '/images/Perforating machine.webp',
     description: 'Applies precise linear micro-perforations and fold-crease indentations to cardstock, preventing fiber tearing during booklet folding.',
     specs: {
       speed: '8,000 sheets/hour',
@@ -243,7 +243,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm18',
     name: 'Heavy-Duty Industrial Thermal Laminator',
     category: 'post-press',
-    image: '/images/Laminating machine.jpg',
+    image: '/images/Laminating machine.webp',
     description: 'High-pressure hot-roller laminating press. Coats book covers and presentation leaflets with waterproof, scratch-proof matte or gloss premium films.',
     specs: {
       speed: '25 meters per minute',
@@ -257,7 +257,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm19',
     name: 'Precision Hydraulic Guillotine Blade Grinder',
     category: 'pre-press',
-    image: '/images/Knife GRINDER Machine.jpg',
+    image: '/images/Knife GRINDER Machine.webp',
     description: 'Ensures all heavy hydraulic trimmer and guillotine blades remain perfectly razor-sharp, maintaining zero-fiber page cuts across book bundles.',
     specs: {
       speed: 'Automated reciprocating wet grind',
@@ -271,7 +271,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm20',
     name: 'RISO SF 5350 EII High-Speed Duplicator',
     category: 'offset',
-    image: '/images/RISO SF 5350 EII.jpg',
+    image: '/images/RISO SF 5350 EII.webp',
     description: 'Digital Risograph duplicator. Offers incredibly fast and inexpensive single-color document copying for educational and corporate materials.',
     specs: {
       speed: '130 impressions per minute',
@@ -285,7 +285,7 @@ export const MACHINERY_DATA: MachineryItem[] = [
     id: 'm21',
     name: 'RISO SF 9350 Ledger Digital Duplicator',
     category: 'offset',
-    image: '/images/RISO SF 9350.jpg',
+    image: '/images/RISO SF 9350.webp',
     description: 'High-capacity ledger-size Risograph printing system. Prints high-frequency booklets and double-page brochures at negligible running costs.',
     specs: {
       speed: '150 impressions per minute',

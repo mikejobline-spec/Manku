@@ -39,11 +39,11 @@ export default function WorkshopGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<WorkshopPhoto | null>(null);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
-  // The 13 real pictures uploaded by the user to public/images/workshop pic (X).jpg
+  // The 13 real pictures uploaded by the user to public/images/workshop pic (X).webp
   const photos: WorkshopPhoto[] = [
     {
       id: 'pic-1',
-      src: '/images/workshop pic (1).jpg',
+      src: '/images/workshop pic (1).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=1200',
       title: 'Manual Collation & Book Assembly Desk',
       category: 'bindery',
@@ -55,7 +55,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-2',
-      src: '/images/workshop pic (2).jpg',
+      src: '/images/workshop pic (2).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
       title: 'Central Production Floor & Signatures Staging',
       category: 'pressroom',
@@ -67,7 +67,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-3',
-      src: '/images/workshop pic (3).jpg',
+      src: '/images/workshop pic (3).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200',
       title: 'Offset Roller Calibrations & Micrometer Setup',
       category: 'pressroom',
@@ -79,7 +79,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-4',
-      src: '/images/workshop pic (4).jpg',
+      src: '/images/workshop pic (4).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
       title: 'Bindery Line & Logistics Corridor',
       category: 'bindery',
@@ -91,7 +91,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-5',
-      src: '/images/workshop pic (5).jpg',
+      src: '/images/workshop pic (5).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
       title: 'Heidelberg Feed & Plate Cylinders',
       category: 'pressroom',
@@ -103,7 +103,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-6',
-      src: '/images/workshop pic (6).jpg',
+      src: '/images/workshop pic (6).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=1200',
       title: 'Industrial Guillotine Trimmer Station',
       category: 'bindery',
@@ -115,7 +115,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-7',
-      src: '/images/workshop pic (7).jpg',
+      src: '/images/workshop pic (7).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
       title: 'High-Volume Cutting & Trimming Setup',
       category: 'bindery',
@@ -127,7 +127,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-8',
-      src: '/images/workshop pic (8).jpg',
+      src: '/images/workshop pic (8).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=1200',
       title: 'Plate Mounting & Staging Area',
       category: 'prepress',
@@ -139,7 +139,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-9',
-      src: '/images/workshop pic (9).jpg',
+      src: '/images/workshop pic (9).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=1200',
       title: 'Bulk Packaging & Distribution Ward',
       category: 'logistics',
@@ -151,7 +151,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-10',
-      src: '/images/workshop pic (10).jpg',
+      src: '/images/workshop pic (10).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=1200',
       title: 'Manual Counting & Crease Assembly',
       category: 'bindery',
@@ -163,7 +163,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-11',
-      src: '/images/workshop pic (11).jpg',
+      src: '/images/workshop pic (11).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200',
       title: 'High Mezzanine Pressroom Perspective',
       category: 'pressroom',
@@ -175,7 +175,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-12',
-      src: '/images/workshop pic (12).jpg',
+      src: '/images/workshop pic (12).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200',
       title: 'Offset Fleet Grid Overview',
       category: 'pressroom',
@@ -187,7 +187,7 @@ export default function WorkshopGallery() {
     },
     {
       id: 'pic-13',
-      src: '/images/workshop pic (13).jpg',
+      src: '/images/workshop pic (13).webp',
       fallbackUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200',
       title: 'Mankusa Executive Boardroom',
       category: 'logistics',

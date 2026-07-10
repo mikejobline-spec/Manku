@@ -1,0 +1,16 @@
+{
+  "name": "mankusa-printing-server",
+  "version": "1.0.0",
+  "description": "Production Node.js SMTP Backend Server for Mankusa Printing Press",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "nodemailer": "^9.0.3"
+  },
+  "author": "Mankusa Printing Press",
+  "license": "ISC"
+}
